@@ -1,0 +1,37 @@
+<ion-menu id="rootSlideMenu" [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title></ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+
+            <div class="item item-avatar">
+            <img src="assets/img/sideMenuAvatar.png">
+            <h4>Harvindar Sharma</h2>
+            <p>harvindar.sharma@infogain.com</p>
+          </div>
+
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <span item-left>
+              <img src="{{p.active ? p.menuselectedImage : p.menuImage}}" alt="" />
+          </span> <p [style.color]="p.active ? '#7d1c45' : '#b0b7bc'">{{p.title}}</p>
+      </button>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer>
+        <ion-toolbar>
+            <button menuClose text-center ion-item clear full (click)="logout()">
+        <ion-icon name="ios-power-outline"></ion-icon> Logout
+      </button>
+        </ion-toolbar>
+    </ion-footer>
+
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

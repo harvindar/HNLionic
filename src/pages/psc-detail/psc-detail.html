@@ -1,0 +1,45 @@
+<ion-header no-border>
+
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button icon-only>
+               <ion-icon name="navigate"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content parallax-header>
+    <div class="header-image" [ngStyle]="{'background-image': 'url(' + this.pscdetail.ImagePath + ')' }"></div>
+    <div class="main-content">
+        <ion-list no-lines>
+            <ion-item text-wrap>
+                <h1><b>{{pscdetail.PSCName}}</b></h1>
+                <p>{{pscdetail.County + ',' + pscdetail.City}}</p>
+                <a item-right href="{{'tel:'+ pscdetail.Phone}}">
+                    <button large ion-button icon-only clear>
+               <ion-icon name="call"></ion-icon>
+            </button>
+                </a>
+            </ion-item>
+            <ion-item text-wrap>
+                <h2>Address</h2>
+                <p>
+                    <span *ngIf="pscdetail.AddressLine">{{pscdetail.AddressLine}}</span>
+                    <span *ngIf="pscdetail.AddressLine2"> {{', '+ pscdetail.AddressLine2}} </span>
+                    <span *ngIf="pscdetail.AddressLine3">{{ ', '+ pscdetail.AddressLine3 }}</span>
+                </p>
+            </ion-item>
+            <ion-item>
+                <h2>Wait Time</h2>
+                <p>{{pscdetail.WaitTimeDescription}}</p>
+            </ion-item>
+            <ion-item text-wrap>
+                <h2>Bussiness Hours</h2>
+                <p>{{pscdetail.BussinessHours}}</p>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
