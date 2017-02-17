@@ -2,7 +2,7 @@
     <button ion-item detail-none (click)="itemSelected()">
         All Location
     </button>
-    <button ion-item *ngFor="let item of items" (click)="itemSelected()">
-      {{ item }}
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+      {{ 'Within '+item + ' Kms' }}
     </button>
 </ion-list>

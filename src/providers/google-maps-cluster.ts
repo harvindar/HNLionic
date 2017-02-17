@@ -9,7 +9,7 @@ export class GoogleMapsCluster {
 
   markerCluster: any;
   locations: any;
-
+  markers: any = [];
   constructor(public http: Http) {
     console.log('Hello GoogleMapsCluster Provider');
 
@@ -21,7 +21,7 @@ export class GoogleMapsCluster {
     if (google.maps) {
 
       //Convert locations into array of markers
-      let markers: any = this.locations.map((item) => {
+      this.markers = this.locations.map((item) => {
         let marker = new google.maps.Marker({
           position: { lat: item.Latitude, lng: item.Longitude },
           label: item.PSCName
@@ -30,20 +30,20 @@ export class GoogleMapsCluster {
         return marker;
       });
 
-      for (var i = 0; i < markers.length; i++) {
-        console.log(markers[i]);
-        google.maps.event.addListener(markers[i], 'click', () => {
-          console.log(markers[i]);
+      for (var i = 0; i < this.markers.length; i++) {
+        console.log(this.markers[i]);
+        google.maps.event.addListener(this.markers[i], 'click', () => {
+          console.log(this.markers[i]);
           //this.events.publish('markerclicked',markers[i].get('id'));  
         });
       }
 
-      this.markerCluster = new MarkerClusterer(map, markers, { imagePath: 'assets/img/m' });
+      this.markerCluster = new MarkerClusterer(map, this.markers, { imagePath: 'assets/img/m' });
 
     } else {
       console.warn('Google maps needs to be loaded before adding a cluster');
     }
 
   }
-
+  
 }
