@@ -16,7 +16,7 @@ export class GoogleMapsCluster {
     this.locations = Store.STORES_JSON;
   }
 
-  addCluster(map, markerevents) {
+  addCluster(map) {
 
     if (google.maps) {
 
@@ -29,10 +29,14 @@ export class GoogleMapsCluster {
         marker.set('id', item.ClientID)
         return marker;
       });
-      console.log(markers);
-      /*for (var i = 0; i < markers.length; i++) {
-        markers[i].addListener('click', markerevents(markers[i]));
-      }*/
+
+      for (var i = 0; i < markers.length; i++) {
+        console.log(markers[i]);
+        google.maps.event.addListener(markers[i], 'click', () => {
+          console.log(markers[i]);
+          //this.events.publish('markerclicked',markers[i].get('id'));  
+        });
+      }
 
       this.markerCluster = new MarkerClusterer(map, markers, { imagePath: 'assets/img/m' });
 
