@@ -7,7 +7,6 @@ import {NavController, ViewController, NavParams} from 'ionic-angular';
 //AIzaSyAw-nFMN2BmqvIJFVdtMqe6shhZQq7uuVA
 export class PopoverPage {
   items = [
-    5,
     10,
     20,
     30,

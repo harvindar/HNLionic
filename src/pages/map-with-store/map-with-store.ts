@@ -11,6 +11,7 @@ import * as distanceAPI from 'google-distance';
 import * as _ from 'lodash';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
+import { LocationStorage } from '../../providers/locations';
 declare var google: any;
 @Component({
   selector: 'page-map-with-store',
@@ -26,8 +27,8 @@ export class MapWithStorePage {
   onlyLatLngLocations: any[] = [];
   markers: any = [];
   bounds: any;
-  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController, public platform: Platform, public maps: GoogleMaps) {
-    this.locations = Store.STORES_JSON;
+  constructor(public navCtrl: NavController, public locationStorage: LocationStorage, private popoverCtrl: PopoverController, public platform: Platform, public maps: GoogleMaps) {
+    this.locations = this.locationStorage.getLocation();
     distanceAPI.apiKey = 'AIzaSyAw-nFMN2BmqvIJFVdtMqe6shhZQq7uuVA';
   }
 
@@ -47,14 +48,13 @@ export class MapWithStorePage {
         this.onlyLatLngLocations.push(item.Latitude + ',' + item.Longitude);
       });
     });
-
   }
 
   ionViewDidEnter() {
 
   }
   tolistwithStores() {
-    this.navCtrl.setRoot(ListWithStorePage);
+    this.navCtrl.setRoot(ListWithStorePage, this.locations);
   }
 
   presentPopover(ev) {
@@ -66,41 +66,42 @@ export class MapWithStorePage {
       ev: ev
     });
     popover.onDidDismiss((rangeinkm) => {
-      // Math.round(37058 / 1000);
-      //if (this.currentLocation) {
-      this.getNearbyLocations('40.784212, -75.715123', this.onlyLatLngLocations)
-        .then(res => {
-          var nearbylocations: any[] = [];
-          for (var i = 0; i < res.length; i++) {
-            if (Math.round(res[i].distanceValue / 1000) < rangeinkm) {
-              nearbylocations.push(this.locations[i]);
+      if (rangeinkm) {
+        this.getNearbyLocations('40.784212, -75.715123', this.onlyLatLngLocations)
+          .then(res => {
+            var nearbylocations: any[] = [];
+            for (var i = 0; i < res.length; i++) {
+              if (Math.round(res[i].distanceValue / 1000) < rangeinkm) {
+                nearbylocations.push(this.locations[i]);
+              }
             }
-          }
-          console.log(nearbylocations);
-          this.clearMarkers();
-          this.bounds = new google.maps.LatLngBounds();
-          this.maps.initMap().then(map => {
-          this.addMarkerswithCluster(map, nearbylocations);
-           })
-        })
-        .catch(err => { });
-      //}
-      console.log(this.onlyLatLngLocations);
-      console.log(this.currentLocation);
-      //this.addMarkerswithCluster(this.map, this.locations);
+            this.locationStorage.setLocation(nearbylocations);
+            console.log(nearbylocations);
+            this.clearMarkers();
+            this.bounds = new google.maps.LatLngBounds();
+            // this.maps.initMap().then(map => {
+            this.addMarkerswithCluster(this.map, nearbylocations);
+            // })
+          })
+          .catch(err => { });
+      }
+      else {
+        this.locationStorage.setLocation(Store.STORES_JSON);
+        this.locations = this.locationStorage.getLocation();
+        this.addMarkerswithCluster(this.map, this.locations);
+      }
     })
   }
   clearMarkers() {
-    setTimeout(() => {
-      console.log(this.markers);
-      for (var i = 0; i < this.markers.length; i++) {
-        this.markers[i].setMap(null);
-      }
-      this.markerCluster.clearMarkers();
-      this.markers = [];
-      this.bounds = null;
-    }, 0);
 
+    console.log(this.markers);
+    for (var i = 0; i < this.markers.length; i++) {
+      this.markers[i].setMap(null);
+    }
+    //this.markerCluster.clearMarkers();
+    this.markers = [];
+    this.bounds = null;
+    //this.map.clear();
   }
   addMarkerswithCluster(map, locations: any[]) {
 
@@ -120,7 +121,7 @@ export class MapWithStorePage {
         return marker;
       });
       console.log(this.markers);
-      this.markerCluster = new MarkerClusterer(map, this.markers, { imagePath: 'assets/img/m' });
+      //this.markerCluster = new MarkerClusterer(map, this.markers, { imagePath: 'assets/img/m' });
       map.fitBounds(this.bounds);
     } else {
       console.warn('Google maps needs to be loaded before adding a cluster');

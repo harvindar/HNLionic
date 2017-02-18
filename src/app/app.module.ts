@@ -19,6 +19,7 @@ import { Connectivity } from '../providers/connectivity';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import { ParallaxHeader } from '../components/parallax-header/parallax-header';
 import { PopoverPage } from '../pages/popover-page/popover-page';
+import { LocationStorage } from '../providers/locations';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,6 @@ import { PopoverPage } from '../pages/popover-page/popover-page';
     PopoverPage,
     HealthTipsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, Connectivity, LocationStorage]
 })
 export class AppModule {}

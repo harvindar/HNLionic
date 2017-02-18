@@ -1533,36 +1533,6 @@ export class Store {
           "Holidays": null,
           "PSCCurrentStatusMessage": "<p style=\"font-weight:bold;color:#FF0000;\">Currently Closed</p>",
           "CompanyHolidayResponse": null
-        },
-        {
-          "ClientID": 9996,
-          "ClientCode": "C6462",
-          "PSCName": "testing nicole",
-          "AddressLine": "5827 Cove Road",
-          "AddressLine2": "",
-          "AddressLine3": null,
-          "County": "Lehigh County",
-          "Country": null,
-          "City": "Laurys Station",
-          "State": "PA",
-          "ZipCode": "18059",
-          "Phone": "(555) 555-5555",
-          "Fax": "(222) 222-2222",
-          "BussinessHours": "  Monday: 7:00 a.m. to 7:00 p.m.  Tuesday: Closed  Wednesday: Closed<span class=\"today\">  Thursday: Closed</span>  Friday: Closed  Saturday: Closed  Sunday: Closed",
-          "Disclaimer": null,
-          "ImagePath": "https://secureportal.healthnetworklabs.com/Apps/Content/PSCImages/59ea7fd0-f928-49d5-ad5e-3dc70bd141ae_Desert.jpg",
-          "Distance": -1,
-          "Latitude": 40.732,
-          "Longitude": -75.5332,
-          "Active": null,
-          "CurrentWaitTime": 0,
-          "WaitTimeDescription": " < 5 mins",
-          "ShowWaitTime": false,
-          "Response": null,
-          "AdditionalMessage": null,
-          "Holidays": null,
-          "PSCCurrentStatusMessage": "<p style=\"font-weight:bold;color:#FF0000;\">Currently Closed</p>",
-          "CompanyHolidayResponse": null
         }
       ]; }
 

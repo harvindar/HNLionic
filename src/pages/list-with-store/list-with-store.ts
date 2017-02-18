@@ -12,7 +12,9 @@ import {PopoverPage} from '../popover-page/popover-page';
 })
 export class ListWithStorePage {
   stores: any[] = [];
-  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController,public navParams: NavParams) { }
+  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController,public navParams: NavParams) {
+    this.stores = this.navParams.data;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListWithStorePage');
@@ -21,7 +23,7 @@ export class ListWithStorePage {
     this.navCtrl.setRoot(MapWithStorePage);
   }
   ionViewDidEnter() {
-    this.stores = Store.STORES_JSON;
+    this.stores = this.navParams.data;
   }
   toPSCDetail(store: any) {
     this.navCtrl.push(PscDetailPage, store);
