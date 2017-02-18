@@ -13,7 +13,8 @@ import { PayyourbillPage } from '../pages/payyourbill/payyourbill';
 import { ScheduleHomeCallPage } from '../pages/schedule-home-call/schedule-home-call';
 import { PscDetailPage } from '../pages/psc-detail/psc-detail';
 import {HealthTipsPage} from '../pages/health-tips/health-tips';
-
+import {ContactUsPage} from '../pages/contact-us/contact-us';
+import {FaqPage} from '../pages/faq/faq';
 
 
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
@@ -41,6 +42,8 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     HealthTipsPage,
     PopoverPage,
     LabReportPage,
+    FaqPage,
+    ContactUsPage,
     PdfViewerComponent
   ],
   imports: [
@@ -60,6 +63,8 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     ListWithStorePage,
     PopoverPage,
     LabReportPage,
+    ContactUsPage,
+    FaqPage,
     HealthTipsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]

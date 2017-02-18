@@ -9,6 +9,9 @@ import { ViewhealthPage } from '../pages/viewhealth/viewhealth';
 import { PayyourbillPage } from '../pages/payyourbill/payyourbill';
 import { ScheduleHomeCallPage } from '../pages/schedule-home-call/schedule-home-call';
 import {HealthTipsPage} from '../pages/health-tips/health-tips';
+import {ContactUsPage} from '../pages/contact-us/contact-us';
+import {FaqPage} from '../pages/faq/faq';
+
 
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
@@ -35,7 +38,11 @@ export class MyApp {
       { title: 'Lab Result', component: Page3Page, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
       { title: 'My Health', component: ViewhealthPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
       { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'Health Tips', component: HealthTipsPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false }
+      { title: 'Health Tips', component: HealthTipsPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
+      { title: 'Contact Us', component: ContactUsPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
+      { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false }
+
+
     ];
 
     events.subscribe('user:logout', (userEventData) => {
