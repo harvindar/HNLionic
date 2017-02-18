@@ -1,5 +1,9 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
+
+
 import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
@@ -19,6 +23,7 @@ import { Connectivity } from '../providers/connectivity';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import { ParallaxHeader } from '../components/parallax-header/parallax-header';
 import { PopoverPage } from '../pages/popover-page/popover-page';
+import {LabReportPage} from '../pages/lab-report/lab-report';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,9 @@ import { PopoverPage } from '../pages/popover-page/popover-page';
     ListWithStorePage,
     ParallaxHeader,
     HealthTipsPage,
-    PopoverPage
+    PopoverPage,
+    LabReportPage,
+    PdfViewerComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -52,6 +59,7 @@ import { PopoverPage } from '../pages/popover-page/popover-page';
     MapWithStorePage,
     ListWithStorePage,
     PopoverPage,
+    LabReportPage,
     HealthTipsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]

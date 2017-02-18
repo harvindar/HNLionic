@@ -12,6 +12,7 @@ import {HealthTipsPage} from '../pages/health-tips/health-tips';
 
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
+import {LabReportPage} from '../pages/lab-report/lab-report';
 
 
 @Component({
