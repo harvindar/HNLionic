@@ -17,17 +17,17 @@
                     <p>harvindar.sharma@infogain.com</p>
             </div>-->
 
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+            <button menuClose detail-none ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <span item-left>
               <img src="{{p.active ? p.menuselectedImage : p.menuImage}}" alt="" />
-          </span> <p [style.color]="p.active ? '#7d1c45' : '#b0b7bc'">{{p.title}}</p>
+          </span> <p [style.color]="p.active ? '#ffffff' : '#9d9fa0'">{{p.title}}</p>
       </button>
         </ion-list>
     </ion-content>
 
     <ion-footer>
         <ion-toolbar>
-            <button menuClose text-center ion-item clear full (click)="logout()">
+            <button menuClose text-center ion-item clear full detail-none (click)="logout()">
         <ion-icon name="ios-power-outline"></ion-icon> Logout
       </button>
         </ion-toolbar>

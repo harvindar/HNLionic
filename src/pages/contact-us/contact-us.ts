@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams ,Platform} from 'ionic-angular';
 import { AppVersion} from 'ionic-native';
+import { InAppBrowser } from 'ionic-native';
 
 /*
   Generated class for the ContactUs page.
@@ -19,7 +20,7 @@ export class ContactUsPage {
 
   appversion: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public platform: Platform,public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactUsPage');
@@ -30,4 +31,20 @@ export class ContactUsPage {
       this.appversion = res;
     });
   }
+
+  openSurvey1() {
+        this.platform.ready().then(() => {
+            let browser = new InAppBrowser("https://www.surveymonkey.com/r/TJ5WJXJ",'_blank');
+
+        });
+  }  
+
+  openSurvey2() {
+        this.platform.ready().then(() => {
+            let browser = new InAppBrowser("https://www.surveymonkey.com/r/F22H7TXm",'_blank');
+
+        });
+  }  
+
+
 }

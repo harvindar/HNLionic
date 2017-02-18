@@ -12,12 +12,29 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-$toolbar-text-color: #7d1c45;
+$toolbar-text-color: #033e74;
 $dark-grey: #313134 !default;
 $very-light-grey: #B0B7BC !default;
 .toolbar-background {
-    background-color: #7d1c45;
+    background-color: #033e74;
 }
+
+
+.root-home {
+    height: 100%;
+    .home {
+        ion-content {
+            background-color: black!important;
+        }
+    }
+}
+
+.harryCustom
+{
+    background-color: #033e74;
+}
+
+
 
 #rootSlideMenu {
     .profile-block {
@@ -32,8 +49,8 @@ $very-light-grey: #B0B7BC !default;
             }
         }
     }
-    scroll-content {
-        background-color: $dark-grey;
+    .scroll-content {
+        background-color: #033e74;
     }
     .item:first-child {
         border-top: 0px;
@@ -49,7 +66,7 @@ $very-light-grey: #B0B7BC !default;
         border-color: $dark-grey;
     }
     .item {
-        background-color: transparent;
+        background-color: #033e74;
         border-bottom: 1px solid #2b2b2b;
         .item-inner {
             border-bottom: 0px;

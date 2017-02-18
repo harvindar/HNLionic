@@ -14,43 +14,55 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="about-page">
-    <ion-grid>
-        <ion-row>
-            <ion-col>
-                <img src="assets/img/logowithname.png" class="logo" />
-            </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                <h5 text-center>{{'v '+appversion}}</h5>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+<ion-content>
+  
+  <!--<div class="card">
+  <div class="item">
+    <h2>NOTIFICATIONS & ALERTS</h2>
+  </div>
+  <div class="item item-body">
+    <ion-item class="item-text-wrap" ng-repeat="notification in vm.notifications">
+      {{notification.ArisNotificationMessage}}
+    </ion-item>
+  </div>
+</div>-->
+
+
+  <ion-card class="survey-card">
+    <ion-card-header style="white-space: normal;" class="survey-card-header">
+      MYHNLACCESS Patient Portal Experience Survey
+    </ion-card-header>
+    <ion-card-content>
+      Your opinion matters. Please tell us what you think of your experiences on this site. Click the Start Survey button to begin.
+    </ion-card-content>
+    <button ion-button (click)='openSurvey1()'>Start Survey</button>
+  </ion-card>
+
+  <ion-card class="survey-card">
+    <ion-card-header style="white-space: normal;" class="survey-card-header">
+      START SURVEYHNL Patient Experience Survey
+    </ion-card-header>
+    <ion-card-content>
+      Please tell us how well we met your most recent lab testing needs. Click the Start Survey button to begin.
+    </ion-card-content>
+    <button ion-button (click)='openSurvey2()'>Start Survey</button>
+  </ion-card>
+
     <ion-list>
         <ion-item>
             <ion-icon name="at" item-left></ion-icon>
-            http://www.infogain.com/
+            https://myhnlaccess.force.com
         </ion-item>
         <ion-item>
-            <ion-icon name="logo-linkedin" item-left></ion-icon>
-            infogain
-        </ion-item>
-        <ion-item>
-            <ion-icon name="logo-twitter" item-left></ion-icon>
-            @infogain
+            <ion-icon name="call" item-left></ion-icon>
+            1-877-402-4221
         </ion-item>
     </ion-list>
 </ion-content>
 <ion-footer>
     <ion-row>
         <ion-col>
-            <p text-center>Copyright © 2016 HNL All Rights Reserved</p>
-        </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col>
-            <p text-center>Powered by Infogain India Pvt Ltd</p>
+            <p text-center>© 2017 Copyright Health Network Laboratories.</p>
         </ion-col>
     </ion-row>
 </ion-footer>

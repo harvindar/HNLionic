@@ -15,6 +15,9 @@ import { PscDetailPage } from '../pages/psc-detail/psc-detail';
 import {HealthTipsPage} from '../pages/health-tips/health-tips';
 import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {FaqPage} from '../pages/faq/faq';
+import {DashboardPage} from '../pages/dashboard/dashboard';
+import {MyProfilePage} from '../pages/my-profile/my-profile';
+
 
 
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
@@ -44,6 +47,8 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     LabReportPage,
     FaqPage,
     ContactUsPage,
+    DashboardPage,
+    MyProfilePage,
     PdfViewerComponent
   ],
   imports: [
@@ -65,6 +70,8 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     LabReportPage,
     ContactUsPage,
     FaqPage,
+    DashboardPage,
+    MyProfilePage,
     HealthTipsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]
