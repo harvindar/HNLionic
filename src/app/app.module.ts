@@ -17,6 +17,11 @@ import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {FaqPage} from '../pages/faq/faq';
 import {DashboardPage} from '../pages/dashboard/dashboard';
 import {MyProfilePage} from '../pages/my-profile/my-profile';
+import {ViewTestPage} from '../pages/view-test/view-test';
+import {BookHouseCallPage} from '../pages/book-house-call/book-house-call';
+import {TestDetailPage} from '../pages/test-detail/test-detail';
+
+
 
 
 import {PatientPage} from '../pages/patient/patient';
@@ -65,6 +70,9 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     SharedAccountPage,
     NotificationsPage,
     WellnessPage,
+    ViewTestPage,
+    BookHouseCallPage,
+    TestDetailPage,
     PdfViewerComponent
   ],
   imports: [
@@ -91,13 +99,15 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     FaqPage,
     DashboardPage,
     MyProfilePage,
-        PatientPage,
+    PatientPage,
     InsuranceInfoPage,
     PaymentPage,
     SharedAccountPage,
     NotificationsPage,
     WellnessPage,
-
+    ViewTestPage,
+    BookHouseCallPage,
+    TestDetailPage,
     HealthTipsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]
