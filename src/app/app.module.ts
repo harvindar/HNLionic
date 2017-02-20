@@ -19,6 +19,14 @@ import {DashboardPage} from '../pages/dashboard/dashboard';
 import {MyProfilePage} from '../pages/my-profile/my-profile';
 
 
+import {PatientPage} from '../pages/patient/patient';
+import {InsuranceInfoPage} from '../pages/insurance-info/insurance-info';
+import {PaymentPage} from '../pages/payment/payment';
+import {SharedAccountPage} from '../pages/shared-account/shared-account';
+import {NotificationsPage} from '../pages/notifications/notifications';
+import {WellnessPage} from '../pages/wellness/wellness';
+
+
 
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
 import { GoogleMaps } from '../providers/google-maps';
@@ -26,6 +34,7 @@ import { GoogleMapsCluster } from '../providers/google-maps-cluster';
 import { Connectivity } from '../providers/connectivity';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import { ParallaxHeader } from '../components/parallax-header/parallax-header';
+import {ScrollableTabs} from '../components/scrollable-tabs/scrollable-tabs';
 import { PopoverPage } from '../pages/popover-page/popover-page';
 import {LabReportPage} from '../pages/lab-report/lab-report';
 
@@ -42,6 +51,7 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     MapWithStorePage,
     ListWithStorePage,
     ParallaxHeader,
+    ScrollableTabs,
     HealthTipsPage,
     PopoverPage,
     LabReportPage,
@@ -49,10 +59,19 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     ContactUsPage,
     DashboardPage,
     MyProfilePage,
+    PatientPage,
+    InsuranceInfoPage,
+    PaymentPage,
+    SharedAccountPage,
+    NotificationsPage,
+    WellnessPage,
     PdfViewerComponent
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+
+    IonicModule.forRoot(MyApp,{
+            tabsPlacement: 'top'
+        })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -72,6 +91,13 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     FaqPage,
     DashboardPage,
     MyProfilePage,
+        PatientPage,
+    InsuranceInfoPage,
+    PaymentPage,
+    SharedAccountPage,
+    NotificationsPage,
+    WellnessPage,
+
     HealthTipsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]

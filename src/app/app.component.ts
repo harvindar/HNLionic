@@ -27,7 +27,7 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = MapWithStorePage;
+  rootPage: any = Page1;
 
   pages: Array<{ title: string, component: any, menuImage: string, menuselectedImage: string, active: boolean }>;
 
