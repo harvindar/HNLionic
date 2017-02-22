@@ -34,7 +34,6 @@ export class MapWithStorePage {
         // this.map = map;
         this.addCluster(map);
       });
-
     });
 
   }
@@ -43,9 +42,8 @@ export class MapWithStorePage {
 
   }
   toggleView() {
-   // this.navCtrl.setRoot(ListWithStorePage);
-   this.flipContainer.nativeElement.classList.toggle('hover');
-   console.log(this.flipContainer.nativeElement.classList);
+    // this.navCtrl.setRoot(ListWithStorePage);
+    this.flipContainer.nativeElement.classList.toggle('hover');
   }
 
   presentPopover(ev) {
@@ -90,12 +88,12 @@ export class MapWithStorePage {
   }
 
   attachmyEvents(marker) {
-    marker.addListener('click',  () => {
-     console.log(marker.get('id'));
-     let selected_marker = this.locations.filter((item) => {
-       return item.ClientID == marker.get('id');
-     });
-     this.navCtrl.push(PscDetailPage,selected_marker[0])
+    marker.addListener('click', () => {
+      console.log(marker.get('id'));
+      let selected_marker = this.locations.filter((item) => {
+        return item.ClientID == marker.get('id');
+      });
+      this.navCtrl.push(PscDetailPage, selected_marker[0])
     });
   }
 }
