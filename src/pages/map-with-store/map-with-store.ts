@@ -5,9 +5,8 @@ import { GoogleMapsCluster } from '../../providers/google-maps-cluster';
 import { ListWithStorePage } from '../list-with-store/list-with-store';
 import { PscDetailPage } from '../psc-detail/psc-detail';
 import { PopoverPage } from '../popover-page/popover-page';
-import { Store } from '../../providers/store';
+import { StoreProvider } from '../../providers/store';
 import * as MarkerClusterer from 'node-js-marker-clusterer';
-import * as distanceAPI from 'google-distance';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
@@ -27,13 +26,14 @@ export class MapWithStorePage {
   markers: any = [];
   bounds: any;
   @ViewChild('flipContainer') flipContainer: ElementRef;
-  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController, public platform: Platform, public maps: GoogleMaps, public mapCluster: GoogleMapsCluster) {
-    this.locations = Store.STORES_JSON;
-    distanceAPI.apiKey = 'AIzaSyAw-nFMN2BmqvIJFVdtMqe6shhZQq7uuVA';
+  constructor(public navCtrl: NavController, public storeProvider: StoreProvider, private popoverCtrl: PopoverController, public platform: Platform, public maps: GoogleMaps, public mapCluster: GoogleMapsCluster) {
+
+
   }
 
   ionViewDidLoad(): void {
-
+    console.log('map loading');
+    this.locations = this.storeProvider.stores_list;
     this.platform.ready().then(() => {
       console.log('loading map');
       let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then((map) => {
@@ -67,23 +67,21 @@ export class MapWithStorePage {
     });
     popover.onDidDismiss((rangeinkm) => {
       if (rangeinkm != -1 && rangeinkm != null) {
-        this.getNearbyLocations('40.784212, -75.715123', this.onlyLatLngLocations)
+        this.maps.getNearbyLocations('40.784212, -75.715123', this.onlyLatLngLocations)
           .then(res => {
+            console.log('distanceapi', res);
             var nearbylocations: any[] = [];
-            var original_json = Store.STORES_JSON;
+            var original_json = this.storeProvider.stores_list;
             for (var i = 0; i < res.length; i++) {
               if (Math.round(res[i].distanceValue / 1000) < rangeinkm) {
                 nearbylocations.push(original_json[i]);
               }
             }
             this.locations = nearbylocations;
-            //this.locationStorage.setLocation(nearbylocations);
             console.log(nearbylocations);
             this.clearMarkers();
             this.bounds = new google.maps.LatLngBounds();
-            // this.maps.initMap().then(map => {
             this.addMarkerswithCluster(this.map, nearbylocations);
-            // })
           })
           .catch(err => { });
       }
@@ -91,7 +89,7 @@ export class MapWithStorePage {
 
         this.clearMarkers();
         this.bounds = new google.maps.LatLngBounds();
-        this.locations = Store.STORES_JSON;
+        this.locations = this.storeProvider.stores_list;;
         this.addMarkerswithCluster(this.map, this.locations);
       }
     })
@@ -104,15 +102,16 @@ export class MapWithStorePage {
     for (var i = 0; i < this.markers.length; i++) {
       this.markers[i].setMap(null);
     }
-    this.markerCluster.clearMarkers();
+    if (this.markerCluster) {
+      this.markerCluster.clearMarkers();
+    }
+
     this.markers = [];
     this.bounds = null;
     //this.map.clear();
   }
   addMarkerswithCluster(map, locations: any[]) {
-
     if (google.maps) {
-      //AIzaSyAw-nFMN2BmqvIJFVdtMqe6shhZQq7uuVA
       //Convert locations into array of markers
       console.log(locations);
       this.markers = locations.map((item) => {
@@ -145,19 +144,5 @@ export class MapWithStorePage {
     });
   }
 
-  getNearbyLocations(origins, destinations): Promise<any> {
-    return new Promise((resolve, reject) => {
-      distanceAPI.get(
-        {
-          origins: [origins],
-          destinations: destinations,
-          sensor: true
-        },
-        (err, data) => {
-          if (err) return reject(err);
-          resolve(data);
-        }
-      )
-    });
-  }
+
 }

@@ -43,6 +43,7 @@ import { ParallaxHeader } from '../components/parallax-header/parallax-header';
 import {ScrollableTabs} from '../components/scrollable-tabs/scrollable-tabs';
 import { PopoverPage } from '../pages/popover-page/popover-page';
 import {LabReportPage} from '../pages/lab-report/lab-report';
+import { StoreProvider } from '../providers/store';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,6 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     LoginNewPage,
     HealthTipsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
 })
 export class AppModule {}

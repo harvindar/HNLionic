@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import * as MarkerClusterer from 'node-js-marker-clusterer';
 import 'rxjs/add/operator/map';
-import { Store } from './store';
 
 @Injectable()
 export class GoogleMapsCluster {
@@ -13,7 +12,7 @@ export class GoogleMapsCluster {
   constructor(public http: Http) {
     console.log('Hello GoogleMapsCluster Provider');
 
-    this.locations = Store.STORES_JSON;
+   // this.locations = Store.STORES_JSON;
   }
 
   addCluster(map) {
