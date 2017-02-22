@@ -8,9 +8,9 @@ import {NavController, ViewController, NavParams} from 'ionic-angular';
 export class PopoverPage {
   items = [
     'With in 10 Miles',
-    'With in 10 Miles',
-    'With in 10 Miles',
-    'With in 10 Miles'
+    'With in 20 Miles',
+    'With in 30 Miles',
+    'With in 40 Miles'
   ];
   constructor(private viewCtrl: ViewController, private navParams: NavParams) { }
 

@@ -20,6 +20,7 @@ import {MyProfilePage} from '../pages/my-profile/my-profile';
 import {ViewTestPage} from '../pages/view-test/view-test';
 import {BookHouseCallPage} from '../pages/book-house-call/book-house-call';
 import {TestDetailPage} from '../pages/test-detail/test-detail';
+import {LoginNewPage} from '../pages/login-new/login-new';
 
 
 
@@ -73,6 +74,7 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     ViewTestPage,
     BookHouseCallPage,
     TestDetailPage,
+    LoginNewPage,
     PdfViewerComponent
   ],
   imports: [
@@ -108,6 +110,7 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
     ViewTestPage,
     BookHouseCallPage,
     TestDetailPage,
+    LoginNewPage,
     HealthTipsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity]
