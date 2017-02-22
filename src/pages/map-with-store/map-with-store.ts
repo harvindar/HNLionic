@@ -53,23 +53,20 @@ export class MapWithStorePage {
   }
 
   ionViewDidEnter() {
-
   }
   toggleView() {
     // this.navCtrl.setRoot(ListWithStorePage);
-    this.flipContainer.nativeElement.classList.toggle('hover');
+    this.flipContainer.nativeElement.classList.toggle('flip');
   }
 
   presentPopover(ev) {
-
     let popover = this.popoverCtrl.create(PopoverPage, {
     });
-
     popover.present({
       ev: ev
     });
     popover.onDidDismiss((rangeinkm) => {
-      if (rangeinkm != -1) {
+      if (rangeinkm != -1 && rangeinkm != null) {
         this.getNearbyLocations('40.784212, -75.715123', this.onlyLatLngLocations)
           .then(res => {
             var nearbylocations: any[] = [];
@@ -103,12 +100,11 @@ export class MapWithStorePage {
     this.navCtrl.push(PscDetailPage, store);
   }
   clearMarkers() {
-
     console.log(this.markers);
     for (var i = 0; i < this.markers.length; i++) {
       this.markers[i].setMap(null);
     }
-    //this.markerCluster.clearMarkers();
+    this.markerCluster.clearMarkers();
     this.markers = [];
     this.bounds = null;
     //this.map.clear();
@@ -131,7 +127,7 @@ export class MapWithStorePage {
         return marker;
       });
       console.log(this.markers);
-      //this.markerCluster = new MarkerClusterer(map, this.markers, { imagePath: 'assets/img/m' });
+      this.markerCluster = new MarkerClusterer(map, this.markers, { imagePath: 'assets/img/m' });
       map.fitBounds(this.bounds);
     } else {
       console.warn('Google maps needs to be loaded before adding a cluster');
