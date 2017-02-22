@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform ,Events} from 'ionic-angular';
+import { Nav, Platform ,Events,AlertController} from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { Page1 } from '../pages/page1/page1';
@@ -13,6 +13,7 @@ import {ContactUsPage} from '../pages/contact-us/contact-us';
 import {FaqPage} from '../pages/faq/faq';
 import {DashboardPage} from '../pages/dashboard/dashboard';
 import {MyProfilePage} from '../pages/my-profile/my-profile';
+import {LoginNewPage} from '../pages/login-new/login-new';
 
 
 
@@ -27,11 +28,11 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = LoginNewPage;
 
   pages: Array<{ title: string, component: any, menuImage: string, menuselectedImage: string, active: boolean }>;
 
-  constructor(public platform: Platform,private events: Events) {
+  constructor(public platform: Platform,private events: Events,public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -51,7 +52,11 @@ export class MyApp {
     ];
 
     events.subscribe('user:logout', (userEventData) => {
-      this.nav.setRoot(Page1);
+      this.nav.setRoot(LoginNewPage);
+    });
+
+    events.subscribe('user:loginerror', (userEventData) => {
+      this.showLoginErrorAlert();
     });
 
     events.subscribe('user:login', (userEventData) => {
@@ -82,6 +87,16 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+
+  showLoginErrorAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Error',
+      subTitle: 'Error while login, Please check your Usename or Password.',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   logout()
