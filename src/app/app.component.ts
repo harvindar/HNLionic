@@ -28,7 +28,7 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginNewPage;
+  rootPage: any = Page1;
 
   pages: Array<{ title: string, component: any, menuImage: string, menuselectedImage: string, active: boolean }>;
 
@@ -37,22 +37,22 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'My Profile', component: MyProfilePage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'My Lab Results', component: Page3Page, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'PSC Locator', component: MapWithStorePage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: true },
-      { title: 'Schedule Home Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
+      { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/side-white-1.png', menuselectedImage: 'assets/img/side-white-1.png', active: false },
+      { title: 'My Profile', component: MyProfilePage, menuImage: 'assets/img/side-white-2.png', menuselectedImage: 'assets/img/side-white-2.png', active: false },
+      { title: 'My Lab Results', component: Page3Page, menuImage: 'assets/img/side-white-3.png', menuselectedImage: 'assets/img/side-white-3.png', active: false },
+      { title: 'PSC Locator', component: MapWithStorePage, menuImage: 'assets/img/side-white-8.png', menuselectedImage: 'assets/img/side-white-8.png', active: true },
+      { title: 'Schedule Home Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/side-white-7.png', menuselectedImage: 'assets/img/side-white-7.png', active: false },
 //      { title: 'My Health', component: ViewhealthPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
 //      { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'Health Library', component: HealthTipsPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'Contact Us', component: ContactUsPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
-      { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false }
+      { title: 'Health Library', component: HealthTipsPage, menuImage: 'assets/img/side-white-4.png', menuselectedImage: 'assets/img/side-white-4.png', active: false },
+      { title: 'Contact Us', component: ContactUsPage, menuImage: 'assets/img/side-white-6.png', menuselectedImage: 'assets/img/side-white-6.png', active: false },
+      { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/side-white-5.png', menuselectedImage: 'assets/img/side-white-5.png', active: false } 
 
 
     ];
 
     events.subscribe('user:logout', (userEventData) => {
-      this.nav.setRoot(LoginNewPage);
+      this.nav.setRoot(Page1);
     });
 
     events.subscribe('user:loginerror', (userEventData) => {
@@ -101,6 +101,6 @@ export class MyApp {
 
   logout()
   {
-        this.events.publish('user:logout', "User logged out");
+    this.events.publish('user:logout', "User logged out");
   }
 }
