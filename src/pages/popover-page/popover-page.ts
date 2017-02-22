@@ -4,21 +4,24 @@ import {NavController, ViewController, NavParams} from 'ionic-angular';
 @Component({
   templateUrl: 'popover-page.html'
 })
-
+//AIzaSyAw-nFMN2BmqvIJFVdtMqe6shhZQq7uuVA
 export class PopoverPage {
   items = [
-    'With in 10 Miles',
-    'With in 20 Miles',
-    'With in 30 Miles',
-    'With in 40 Miles'
+    10,
+    20,
+    30,
+    40
   ];
-  constructor(private viewCtrl: ViewController, private navParams: NavParams) { }
+  constructor(private viewCtrl: ViewController, private navParams: NavParams) {
+    
+  }
 
   ngOnInit() {
   }
 
-  itemSelected() {
-    console.log("Closing popover");
-    this.viewCtrl.dismiss();
+  itemSelected(km) {
+    this.viewCtrl.dismiss(km).then((res) => {
+      
+    });
   }
 }
