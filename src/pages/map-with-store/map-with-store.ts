@@ -21,6 +21,7 @@ export class MapWithStorePage {
   map: any;
   markerCluster: any;
   locations: any;
+  @ViewChild('flipContainer') flipContainer: ElementRef;
   constructor(public navCtrl: NavController, private popoverCtrl: PopoverController, public platform: Platform, public maps: GoogleMaps, public mapCluster: GoogleMapsCluster) {
     this.locations = Store.STORES_JSON;
   }
@@ -41,8 +42,10 @@ export class MapWithStorePage {
   ionViewDidEnter() {
 
   }
-  tolistwithStores() {
-    this.navCtrl.setRoot(ListWithStorePage);
+  toggleView() {
+   // this.navCtrl.setRoot(ListWithStorePage);
+   this.flipContainer.nativeElement.classList.toggle('hover');
+   console.log(this.flipContainer.nativeElement.classList);
   }
 
   presentPopover(ev) {

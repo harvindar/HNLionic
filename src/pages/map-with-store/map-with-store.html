@@ -1,28 +1,38 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle color="light">
+    <ion-navbar>
+        <button ion-button menuToggle color="light">
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-buttons end>
+            <button ion-button icon-only (click)="presentPopover($event)">
         <ion-icon name="funnel"></ion-icon>
       </button>
-    </ion-buttons>
+        </ion-buttons>
 
-    
-    <ion-title color="light">PSC Locator</ion-title>
-  </ion-navbar>
+
+        <ion-title color="light">PSC Locator</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-    <div #pleaseConnect id="please-connect">
-        <p>Please connect to the Internet...</p>
+    <div class="flip-container" #flipContainer>
+        <div class="flipper">
+            <div class="front">
+                <div #pleaseConnect id="please-connect">
+                    <p>Please connect to the Internet...</p>
+                </div>
+
+                <div #map id="map"></div>
+            </div>
+            <div class="back">
+                my back content
+            </div>
+        </div>
     </div>
 
-    <div #map id="map"></div>
     <ion-fab right bottom>
-        <button ion-fab (click)="tolistwithStores()"><ion-icon name="list"></ion-icon></button>
+        <button ion-fab (click)="toggleView()"><ion-icon name="list"></ion-icon></button>
     </ion-fab>
 </ion-content>
