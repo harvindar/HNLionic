@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Storage}from '@ionic/storage';
-
 import {ViewTestPage} from '../view-test/view-test';
 /*
   Generated class for the ScheduleHomeCall page.

@@ -10,10 +10,15 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Schedule Home Call</ion-title>
+      <ion-fab top right>
+        <button ion-button icon-left clear item-right><a href="tel:+1-877-402-4221">
+          <ion-icon name="call"></ion-icon>
+          call center
+            </a>
+        </button>
+      </ion-fab>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content class="card-background-page" padding>
    <ion-fab top right edge>
        <button ion-fab mini (click)="placehousecall()">
@@ -33,17 +38,32 @@
        </ion-list-header>
       <ion-item-sliding *ngFor="let item of myhousecalls">
           <ion-item>
-          <ion-card>
-              <ion-card-content>
-               {{item.AppointmentDate | date:'yyyy-MM-dd'}}
-              </ion-card-content>
-               <ion-card-content>
-               {{item.Time}}
-              </ion-card-content>
-                          <ion-item *ngFor="let test of item.Test">
-                              {{test.title}}
-                          </ion-item>
-          </ion-card>
+               <ion-card class="project project-radius project-primary">
+				<div class="shape">
+				</div>
+				<div class="project-content">
+                <span item-left>
+                    <h1>
+                    <ion-icon name="calendar"></ion-icon>
+                {{item.AppointmentDate | date:'dd MMM yyyy'}} 
+                <small> {{item.Time | date:'h:mm a'}}</small>
+                </h1>
+                </span>
+                 <div class = "col"></div>
+
+                   <ion-item>  
+					<h3 class="lead" *ngFor="let test of item.Test">
+						{{test.title}}
+					</h3>
+                    </ion-item>
+                   <ion-item>    
+    <button ion-button icon-left clear item-right>
+      <ion-icon name="call"></ion-icon>
+      call center
+    </button>
+  </ion-item>      
+                </div>
+</ion-card>
           </ion-item>            
           <ion-item-options side="right">
               <button ion-button color="danger">
@@ -51,5 +71,12 @@
               </button>
           </ion-item-options>
       </ion-item-sliding>
+         <ion-footer>
+        <ion-fab top right edge>
+            <button ion-fab (click)="placehousecall()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-fab>
+      </ion-footer>
    </ion-list>
 </ion-content>
