@@ -5,7 +5,6 @@ import {ScheduleHomeCallPage} from '../schedule-home-call/schedule-home-call';
 import { Geolocation } from 'ionic-native';
 import {Http} from '@angular/http';
 import { NativeGeocoder, NativeGeocoderReverseResult } from 'ionic-native';
-
 import {Calendar} from 'ionic-native';
 
 /*
@@ -74,7 +73,7 @@ this.storage.set("user-appointments",strval );
 let location = housecall.Address.line1 + ", " + housecall.Address.line2 + ", " + housecall.Address.city + ", " + housecall.Address.state + ", " + housecall.Address.zip;
  let appdate  = new Date( Date.parse(this.housecallappointment.Date));
 
-Calendar.createEvent("HNL House Call Schedule",location, "You have houuse call schedule", appdate, appdate).then((msg)=> {
+Calendar.createEvent("HNL House Call Schedule",location, "You have house call scheduled", appdate, appdate).then((msg)=> {
 console.log(msg);
 
 }, (err)=>{
@@ -177,8 +176,6 @@ this.housecallappointment.Date  = currentDate.toISOString();
 
 settimenow(event) {
 this.housecallappointment.Time  = new Date().toISOString(); 
-
-
 }
 
   
