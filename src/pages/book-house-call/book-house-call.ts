@@ -73,7 +73,7 @@ this.storage.set("user-appointments",strval );
 let location = housecall.Address.line1 + ", " + housecall.Address.line2 + ", " + housecall.Address.city + ", " + housecall.Address.state + ", " + housecall.Address.zip;
  let appdate  = new Date( Date.parse(this.housecallappointment.Date));
 
-Calendar.createEvent("HNL House Call Schedule",location, "You have house call scheduled", appdate, appdate).then((msg)=> {
+Calendar.createEvent("HNL House Call Schedule",location, "You have an house call scheduled", appdate, appdate).then((msg)=> {
 console.log(msg);
 
 }, (err)=>{
