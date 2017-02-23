@@ -18,6 +18,12 @@ page-map-with-store {
     .scroll {
         height: 100%;
     }
+    .no-scroll .scroll-content {
+        overflow: hidden;
+    }
+    ion-scroll .scroll-content {
+        overflow-y: scroll!important;
+    }
     #map {
         width: 100%;
         height: 100%;
@@ -50,15 +56,19 @@ page-map-with-store {
         position: absolute;
         top: 0;
         left: 0;
+        display: none;
     }
     /* front pane, placed above back */
     .front {
         z-index: 2;
         /* for firefox 31 */
         transform: rotateY(0deg);
+        display: block;
+        position: relative;
     }
     /* back, initially hidden pane */
     .back {
         transform: rotateY(180deg);
+        display: block;
     }
 }
