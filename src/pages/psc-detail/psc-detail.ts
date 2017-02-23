@@ -17,9 +17,7 @@ export class PscDetailPage {
   }
   ionViewDidEnter() {
     this.pscdetail = this.navParams.data;
+    console.log(this.pscdetail);
   }
 
-  call(number) {
-    (<any>window).location = 'tell:' + number;
-  }
 }

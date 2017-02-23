@@ -10,6 +10,7 @@ import * as MarkerClusterer from 'node-js-marker-clusterer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
+declare var google:any;
 
 @Component({
   selector: 'page-map-with-store',

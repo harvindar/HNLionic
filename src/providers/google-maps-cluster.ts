@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import * as MarkerClusterer from 'node-js-marker-clusterer';
 import 'rxjs/add/operator/map';
 
+declare var google:any;
+
 @Injectable()
 export class GoogleMapsCluster {
 

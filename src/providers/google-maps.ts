@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { Connectivity } from './connectivity';
 import { Geolocation } from 'ionic-native';
 import * as distanceAPI from 'google-distance';
+declare var google:any;
 
 @Injectable()
 export class GoogleMaps {

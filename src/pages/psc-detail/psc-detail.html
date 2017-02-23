@@ -18,11 +18,21 @@
             <ion-item text-wrap>
                 <h1><b>{{pscdetail.PSCName}}</b></h1>
                 <p>{{pscdetail.County + ',' + pscdetail.City}}</p>
-                <a item-right href="{{'tel:'+ pscdetail.Phone}}">
-                    <button large ion-button icon-only clear>
-               <ion-icon name="call"></ion-icon>
-            </button>
-                </a>
+                <ion-row>
+                    <ion-col width-25>
+                        <a item-right href="{{'tel:'+ pscdetail.Phone}}">
+                            <button large ion-button icon-only clear>
+                                <ion-icon name="call"></ion-icon>
+                            </button>
+                        </a>
+                    </ion-col>
+                    <ion-col width-75>
+                        <button ion-button full large item-right icon-left>
+                            Book an appointment
+                        </button>
+                    </ion-col>
+                </ion-row>
+
             </ion-item>
             <ion-item text-wrap>
                 <h2>Address</h2>
