@@ -73,6 +73,8 @@ export class MapWithStorePage {
             var nearbylocations: any[] = [];
             var original_json = this.storeProvider.stores_list;
             for (var i = 0; i < res.length; i++) {
+              original_json[i].distanceValue = res[i].distanceValue;
+              original_json[i].durationValue = res[i].durationValue;
               if (Math.round(res[i].distanceValue / 1000) < rangeinkm) {
                 nearbylocations.push(original_json[i]);
               }
