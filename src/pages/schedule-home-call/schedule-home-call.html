@@ -32,7 +32,7 @@
             My House Call
         </ion-list-header>
         <ion-item-sliding *ngFor="let item of housecallsList | async">
-            <ion-item>
+            <ion-item (click)="trackCall(item.callinitiated)">
                 <ion-card class="project project-radius project-primary">
                     <div class="shape">
                     </div>
@@ -55,6 +55,7 @@
                 </ion-card>
             </ion-item>
             <ion-item-options side="right">
+
                 <button ion-button color="danger">
                   <ion-icon name="trash"> </ion-icon>
               </button>

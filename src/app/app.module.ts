@@ -50,6 +50,7 @@ import { StoreProvider } from '../providers/store';
 
 import { AngularFireModule } from 'angularfire2';
 import { AMPMFormatter } from '../pipes/ampm-formatter';
+import { TrackCallonMapModal } from '../pages/track-callon-map/track-callon-map';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAEHQ4ZL5JyrCHjVIMffRgtiiOwqEHVmTQ",
@@ -93,7 +94,8 @@ export const firebaseConfig = {
     PdfViewerComponent,
     DemoPage,
     MyProfileTilesPage,
-    AMPMFormatter
+    AMPMFormatter,
+    TrackCallonMapModal
   ],
   imports: [
 
@@ -132,7 +134,8 @@ export const firebaseConfig = {
     LoginNewPage,
     HealthTipsPage,
     DemoPage,
-    MyProfileTilesPage
+    MyProfileTilesPage,
+    TrackCallonMapModal
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
 })

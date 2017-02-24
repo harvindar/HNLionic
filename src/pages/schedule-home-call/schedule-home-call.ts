@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ViewTestPage } from '../view-test/view-test';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { TrackCallonMapModal } from '../track-callon-map/track-callon-map';
 
 /*
   Generated class for the ScheduleHomeCall page.
@@ -22,7 +23,7 @@ export class ScheduleHomeCallPage {
 
   myhousecalls = [];
 
-  constructor(public navCtrl: NavController, storage: Storage, af: AngularFire) {
+  constructor(public navCtrl: NavController, storage: Storage, af: AngularFire, public modalCtrl: ModalController) {
     this.housecallsList = af.database.list('/housecalls');
     this.storage = storage;
     this.storage.get("user-appointments").then((val) => {
@@ -45,6 +46,13 @@ export class ScheduleHomeCallPage {
   deletehousecall(event, item) {
 
 
+  }
+
+  trackCall(callinitiatedStatus) {
+    if (callinitiatedStatus) {
+      let profileModal = this.modalCtrl.create(TrackCallonMapModal, { userId: 8675309 });
+      profileModal.present();
+    }
   }
 
 }

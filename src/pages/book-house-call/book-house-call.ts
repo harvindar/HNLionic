@@ -57,7 +57,7 @@ export class BookHouseCallPage {
   save() {
     const housecallobservable = this.af.database.list('/housecalls');
 
-    let housecall = { Id: new Date().valueOf(), Address: { line1: this.housecallappointment.line1, line2: this.housecallappointment.line2, city: this.housecallappointment.city, state: this.housecallappointment.state, zip: this.housecallappointment.zip }, AppointmentDate: this.housecallappointment.Date, Time: this.housecallappointment.Time, Test: this.selectedtest };
+    let housecall = { Id: new Date().valueOf(), Address: { line1: this.housecallappointment.line1, line2: this.housecallappointment.line2, city: this.housecallappointment.city, state: this.housecallappointment.state, zip: this.housecallappointment.zip }, AppointmentDate: this.housecallappointment.Date, Time: this.housecallappointment.Time, Test: this.selectedtest, callinitiated: false };
     housecallobservable.push(housecall);
     this.storage.get("user-appointments").then((val) => {
       let savedapptment = [];
