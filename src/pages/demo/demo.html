@@ -20,11 +20,10 @@
       <p [innerHTML]="slide.description"></p>
     </ion-slide>
     <ion-slide>
-      <ion-toolbar>
-      </ion-toolbar>
+    
       <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
       <h2 class="slide-title">Ready to Start?</h2>
-      <button ion-button large clear icon-right color="primary">
+      <button ion-button large clear icon-right color="primary" (click)="navigatetohome($event)">
         Continue
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
