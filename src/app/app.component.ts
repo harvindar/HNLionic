@@ -41,7 +41,7 @@ export class MyApp {
       { title: 'My Profile', component: MyProfilePage, menuImage: 'assets/img/side-white-2.png', menuselectedImage: 'assets/img/side-white-2.png', active: false },
       { title: 'My Lab Results', component: Page3Page, menuImage: 'assets/img/side-white-3.png', menuselectedImage: 'assets/img/side-white-3.png', active: false },
       { title: 'Visit Patient Service Center', component: MapWithStorePage, menuImage: 'assets/img/side-white-8.png', menuselectedImage: 'assets/img/side-white-8.png', active: true },
-      { title: 'Schedule Home Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/side-white-7.png', menuselectedImage: 'assets/img/side-white-7.png', active: false },
+      { title: 'Schedule House Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/side-white-7.png', menuselectedImage: 'assets/img/side-white-7.png', active: false },
 //      { title: 'My Health', component: ViewhealthPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
 //      { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
       { title: 'Health Library', component: HealthTipsPage, menuImage: 'assets/img/side-white-4.png', menuselectedImage: 'assets/img/side-white-4.png', active: false },
