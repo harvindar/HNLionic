@@ -6,12 +6,12 @@
 
         <ion-buttons end>
             <button ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="funnel"></ion-icon>
+        <ion-icon ios="md-funnel" md="md-funnel"></ion-icon>
       </button>
         </ion-buttons>
 
 
-        <ion-title color="light">PSC Locator</ion-title>
+        <ion-title color="light">Patient Service Center</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -19,13 +19,13 @@
 <ion-content no-bounce class="no-scroll">
     <div class="flip-container flip" #flipContainer>
         <div class="flipper">
-            <div class="front">
+            <div class="back">
                 <div #pleaseConnect id="please-connect">
                     <p>Please connect to the Internet...</p>
                 </div>
                 <div #map id="map"></div>
             </div>
-            <ion-scroll class="back" scrollX="true">
+            <ion-scroll class="front" scrollX="true">
                 <ion-list [virtualScroll]="locations">
                     <ion-item *virtualItem="let store" (click)="toPSCDetail(store)">
                         <ion-thumbnail item-left>
@@ -41,6 +41,6 @@
     </div>
 
     <ion-fab right bottom>
-        <button ion-fab (click)="toggleView()"><ion-icon name="list"></ion-icon></button>
+        <button ion-fab (click)="toggleView()"><ion-icon name="{{isBackVisible ? 'map' : 'list'}}"></ion-icon></button>
     </ion-fab>
 </ion-content>

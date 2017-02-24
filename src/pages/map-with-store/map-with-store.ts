@@ -17,6 +17,7 @@ declare var google:any;
   templateUrl: 'map-with-store.html'
 })
 export class MapWithStorePage {
+  isBackVisible:Boolean = false;
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
   map: any;
@@ -58,6 +59,7 @@ export class MapWithStorePage {
   toggleView() {
     // this.navCtrl.setRoot(ListWithStorePage);
     this.flipContainer.nativeElement.classList.toggle('flip');
+    this.isBackVisible = !this.isBackVisible;
   }
 
   presentPopover(ev) {

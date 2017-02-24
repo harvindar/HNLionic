@@ -45,6 +45,7 @@ import { PopoverPage } from '../pages/popover-page/popover-page';
 import {LabReportPage} from '../pages/lab-report/lab-report';
 import { StoreProvider } from '../providers/store';
 
+
 @NgModule({
   declarations: [
     MyApp,
