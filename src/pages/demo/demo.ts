@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
+import {Page1} from '../page1/page1';
 
 
 @Component({
@@ -76,7 +77,7 @@ this.data.push({
   }
 
 navigatetohome(event) {
-this.navCtrl.setRoot(DashboardPage);
+this.navCtrl.setRoot(Page1);
 
 }
 

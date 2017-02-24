@@ -22,14 +22,13 @@ import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import {LabReportPage} from '../pages/lab-report/lab-report';
 import {DemoPage} from '../pages/demo/demo';
 
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = DemoPage;
 
   pages: Array<{ title: string, component: any, menuImage: string, menuselectedImage: string, active: boolean }>;
 
@@ -48,7 +47,6 @@ export class MyApp {
       { title: 'Health Library', component: HealthTipsPage, menuImage: 'assets/img/side-white-4.png', menuselectedImage: 'assets/img/side-white-4.png', active: false },
       { title: 'Contact Us', component: ContactUsPage, menuImage: 'assets/img/side-white-6.png', menuselectedImage: 'assets/img/side-white-6.png', active: false },
       { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/side-white-5.png', menuselectedImage: 'assets/img/side-white-5.png', active: false } ,
-      { title: 'Welcome', component: DemoPage, menuImage: 'assets/img/side-white-5.png', menuselectedImage: 'assets/img/side-white-5.png', active: false } 
 
 
     ];
