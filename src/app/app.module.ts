@@ -21,6 +21,7 @@ import {ViewTestPage} from '../pages/view-test/view-test';
 import {BookHouseCallPage} from '../pages/book-house-call/book-house-call';
 import {TestDetailPage} from '../pages/test-detail/test-detail';
 import {LoginNewPage} from '../pages/login-new/login-new';
+import {MyProfileTilesPage} from '../pages/my-profile-tiles/my-profile-tiles';
 
 
 
@@ -80,7 +81,8 @@ import { StoreProvider } from '../providers/store';
     TestDetailPage,
     LoginNewPage,
     PdfViewerComponent,
-    DemoPage
+    DemoPage,
+    MyProfileTilesPage
   ],
   imports: [
 
@@ -117,7 +119,8 @@ import { StoreProvider } from '../providers/store';
     TestDetailPage,
     LoginNewPage,
     HealthTipsPage,
-    DemoPage
+    DemoPage,
+    MyProfileTilesPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
 })

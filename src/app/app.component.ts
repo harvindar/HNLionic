@@ -14,6 +14,7 @@ import {FaqPage} from '../pages/faq/faq';
 import {DashboardPage} from '../pages/dashboard/dashboard';
 import {MyProfilePage} from '../pages/my-profile/my-profile';
 import {LoginNewPage} from '../pages/login-new/login-new';
+import {MyProfileTilesPage} from '../pages/my-profile-tiles/my-profile-tiles';
 
 
 
@@ -38,7 +39,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/side-white-1.png', menuselectedImage: 'assets/img/side-white-1.png', active: false },
-      { title: 'My Profile', component: MyProfilePage, menuImage: 'assets/img/side-white-2.png', menuselectedImage: 'assets/img/side-white-2.png', active: false },
+      { title: 'My Profile', component: MyProfileTilesPage, menuImage: 'assets/img/side-white-2.png', menuselectedImage: 'assets/img/side-white-2.png', active: false },
       { title: 'My Lab Results', component: Page3Page, menuImage: 'assets/img/side-white-3.png', menuselectedImage: 'assets/img/side-white-3.png', active: false },
       { title: 'Visit Patient Service Center', component: MapWithStorePage, menuImage: 'assets/img/side-white-8.png', menuselectedImage: 'assets/img/side-white-8.png', active: true },
       { title: 'Schedule House Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/side-white-7.png', menuselectedImage: 'assets/img/side-white-7.png', active: false },
