@@ -13,6 +13,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="card-background-page" padding>
+    
     <ion-fab top right>
         <a href="tel:+1-877-402-4221">
           <button ion-fab >
@@ -20,17 +21,18 @@
         </button>
         </a>
       </ion-fab>
-       <img src="assets/img/hnlhousecallIMAGES2.jpg">
+    <ion-card [hidden]="!nohousecall">
+       <img src="assets/img/hnlhousecallIMAGES2.jpg" >
        <ion-card-content>
            <p>Now you can have blood work done in the comfort of your own home. click on '+' button to schedule an appointment now.</p>
        </ion-card-content>
-       <!--        <button ion-button color="secondary" round (click)="placehousecall()">Book House Call Now</button>-->
-   <ion-list>
+    </ion-card>
+   <ion-list [hidden]="nohousecall">
        <ion-list-header>
            My House Call
        </ion-list-header>
       <ion-item-sliding *ngFor="let item of myhousecalls">
-          <ion-item>
+          <ion-item>    
                <ion-card class="project project-radius project-primary">
 				<div class="shape">
 				</div>
