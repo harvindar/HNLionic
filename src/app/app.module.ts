@@ -32,6 +32,8 @@ import {SharedAccountPage} from '../pages/shared-account/shared-account';
 import {NotificationsPage} from '../pages/notifications/notifications';
 import {WellnessPage} from '../pages/wellness/wellness';
 
+import { DemoPage } from '../pages/demo/demo';
+
 
 
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
@@ -77,7 +79,8 @@ import { StoreProvider } from '../providers/store';
     BookHouseCallPage,
     TestDetailPage,
     LoginNewPage,
-    PdfViewerComponent
+    PdfViewerComponent,
+    DemoPage
   ],
   imports: [
 
@@ -113,7 +116,8 @@ import { StoreProvider } from '../providers/store';
     BookHouseCallPage,
     TestDetailPage,
     LoginNewPage,
-    HealthTipsPage
+    HealthTipsPage,
+    DemoPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
 })
