@@ -16,6 +16,7 @@ import {ViewTestPage} from '../view-test/view-test';
 export class ScheduleHomeCallPage {
 
   storage: Storage;
+  nohousecall : boolean = true;
 
 myhousecalls = [];
 
@@ -24,9 +25,15 @@ myhousecalls = [];
 this.storage = storage;
 this.storage.get("user-appointments").then((val) => {
     if(val != null) {
-        this.myhousecalls = JSON.parse(val);  
+        this.myhousecalls = JSON.parse(val); 
+        if(this.myhousecalls.length > 0)
+         {
+           this.nohousecall = false;
+         } 
         }
     });
+
+    console.log(this.nohousecall);
 }
   
 placehousecall(event) {
