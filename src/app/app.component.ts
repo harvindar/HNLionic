@@ -20,6 +20,7 @@ import {LoginNewPage} from '../pages/login-new/login-new';
 import { MapWithStorePage } from '../pages/map-with-store/map-with-store';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import {LabReportPage} from '../pages/lab-report/lab-report';
+import {DemoPage} from '../pages/demo/demo';
 
 
 @Component({
@@ -46,7 +47,8 @@ export class MyApp {
 //      { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
       { title: 'Health Library', component: HealthTipsPage, menuImage: 'assets/img/side-white-4.png', menuselectedImage: 'assets/img/side-white-4.png', active: false },
       { title: 'Contact Us', component: ContactUsPage, menuImage: 'assets/img/side-white-6.png', menuselectedImage: 'assets/img/side-white-6.png', active: false },
-      { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/side-white-5.png', menuselectedImage: 'assets/img/side-white-5.png', active: false } 
+      { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/side-white-5.png', menuselectedImage: 'assets/img/side-white-5.png', active: false } ,
+      { title: 'Welcome', component: DemoPage, menuImage: 'assets/img/side-white-5.png', menuselectedImage: 'assets/img/side-white-5.png', active: false } 
 
 
     ];
