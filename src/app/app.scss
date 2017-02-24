@@ -34,7 +34,16 @@ $very-light-grey: #B0B7BC !default;
     background-color: #033e74;
 }
 
+#footerToolbar
+{
+    background-color: #ffffff;
+}
 
+
+.logoutFooterBtn
+{
+    margin-right: 5px;
+}
 
 #rootSlideMenu {
     .profile-block {
@@ -49,9 +58,9 @@ $very-light-grey: #B0B7BC !default;
             }
         }
     }
-    .scroll-content {
-        background-color: #033e74;
-    }
+    // .scroll-content {
+    //     background-color: #033e74;
+    // }
     .item:first-child {
         border-top: 0px;
     }
@@ -66,8 +75,8 @@ $very-light-grey: #B0B7BC !default;
         border-color: $dark-grey;
     }
     .item {
-        background-color: #033e74;
-        border-bottom: 1px solid #8192b9;
+        // background-color: #033e74;
+        //border-bottom: 1px solid #8192b9;
         .item-inner {
             border-bottom: 0px;
         }

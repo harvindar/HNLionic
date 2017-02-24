@@ -4,7 +4,7 @@
             <div class="profile-block" padding-top>
                 <div class="custom-avatar"> <img src="assets/img/andyProfile.png"> </div>
             </div>
-            <h2 color="light">John Smith</h2>
+            <h5 color="light">John Smith</h5>
             <!--<p color="light">john@infogain.com</p>-->
         </ion-toolbar>
     </ion-header>
@@ -20,17 +20,17 @@
             <button menuClose detail-none ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <span item-left>
               <img src="{{p.active ? p.menuselectedImage : p.menuImage}}" alt="" />
-          </span> <p [style.color]="p.active ? '#ffffff' : '#9d9fa0'">{{p.title}}</p>
+          </span> <p [style.color]="p.active ? '#033e74' : '#9d9fa0'">{{p.title}}</p>
       </button>
         </ion-list>
     </ion-content>
 
     <ion-footer>
-        <ion-toolbar>
+        <!--<ion-toolbar class="footerToolbar">-->
             <button menuClose text-center ion-item clear full detail-none (click)="logout()">
-        <ion-icon name="ios-power-outline"></ion-icon> Logout
+        <ion-icon class="logoutFooterBtn" ios="ios-power" md="md-power"></ion-icon> Logout
       </button>
-        </ion-toolbar>
+        <!--</ion-toolbar>-->
     </ion-footer>
 
 
