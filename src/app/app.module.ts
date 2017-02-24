@@ -12,26 +12,26 @@ import { ViewhealthPage } from '../pages/viewhealth/viewhealth';
 import { PayyourbillPage } from '../pages/payyourbill/payyourbill';
 import { ScheduleHomeCallPage } from '../pages/schedule-home-call/schedule-home-call';
 import { PscDetailPage } from '../pages/psc-detail/psc-detail';
-import {HealthTipsPage} from '../pages/health-tips/health-tips';
-import {ContactUsPage} from '../pages/contact-us/contact-us';
-import {FaqPage} from '../pages/faq/faq';
-import {DashboardPage} from '../pages/dashboard/dashboard';
-import {MyProfilePage} from '../pages/my-profile/my-profile';
-import {ViewTestPage} from '../pages/view-test/view-test';
-import {BookHouseCallPage} from '../pages/book-house-call/book-house-call';
-import {TestDetailPage} from '../pages/test-detail/test-detail';
-import {LoginNewPage} from '../pages/login-new/login-new';
-import {MyProfileTilesPage} from '../pages/my-profile-tiles/my-profile-tiles';
+import { HealthTipsPage } from '../pages/health-tips/health-tips';
+import { ContactUsPage } from '../pages/contact-us/contact-us';
+import { FaqPage } from '../pages/faq/faq';
+import { DashboardPage } from '../pages/dashboard/dashboard';
+import { MyProfilePage } from '../pages/my-profile/my-profile';
+import { ViewTestPage } from '../pages/view-test/view-test';
+import { BookHouseCallPage } from '../pages/book-house-call/book-house-call';
+import { TestDetailPage } from '../pages/test-detail/test-detail';
+import { LoginNewPage } from '../pages/login-new/login-new';
+import { MyProfileTilesPage } from '../pages/my-profile-tiles/my-profile-tiles';
 
 
 
 
-import {PatientPage} from '../pages/patient/patient';
-import {InsuranceInfoPage} from '../pages/insurance-info/insurance-info';
-import {PaymentPage} from '../pages/payment/payment';
-import {SharedAccountPage} from '../pages/shared-account/shared-account';
-import {NotificationsPage} from '../pages/notifications/notifications';
-import {WellnessPage} from '../pages/wellness/wellness';
+import { PatientPage } from '../pages/patient/patient';
+import { InsuranceInfoPage } from '../pages/insurance-info/insurance-info';
+import { PaymentPage } from '../pages/payment/payment';
+import { SharedAccountPage } from '../pages/shared-account/shared-account';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { WellnessPage } from '../pages/wellness/wellness';
 
 import { DemoPage } from '../pages/demo/demo';
 
@@ -43,11 +43,21 @@ import { GoogleMapsCluster } from '../providers/google-maps-cluster';
 import { Connectivity } from '../providers/connectivity';
 import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import { ParallaxHeader } from '../components/parallax-header/parallax-header';
-import {ScrollableTabs} from '../components/scrollable-tabs/scrollable-tabs';
+import { ScrollableTabs } from '../components/scrollable-tabs/scrollable-tabs';
 import { PopoverPage } from '../pages/popover-page/popover-page';
-import {LabReportPage} from '../pages/lab-report/lab-report';
+import { LabReportPage } from '../pages/lab-report/lab-report';
 import { StoreProvider } from '../providers/store';
 
+import { AngularFireModule } from 'angularfire2';
+import { AMPMFormatter } from '../pipes/ampm-formatter';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAEHQ4ZL5JyrCHjVIMffRgtiiOwqEHVmTQ",
+  authDomain: "myhnl-efeb9.firebaseapp.com",
+  databaseURL: "https://myhnl-efeb9.firebaseio.com",
+  storageBucket: "myhnl-efeb9.appspot.com",
+  messagingSenderId: "612191887615"
+};
 
 @NgModule({
   declarations: [
@@ -82,13 +92,15 @@ import { StoreProvider } from '../providers/store';
     LoginNewPage,
     PdfViewerComponent,
     DemoPage,
-    MyProfileTilesPage
+    MyProfileTilesPage,
+    AMPMFormatter
   ],
   imports: [
 
-    IonicModule.forRoot(MyApp,{
-            tabsPlacement: 'top'
-        })
+    IonicModule.forRoot(MyApp, {
+      tabsPlacement: 'top'
+    }),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -122,6 +134,6 @@ import { StoreProvider } from '../providers/store';
     DemoPage,
     MyProfileTilesPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
 })
-export class AppModule {}
+export class AppModule { }
