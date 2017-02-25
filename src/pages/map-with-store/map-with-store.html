@@ -33,7 +33,9 @@
                         </ion-thumbnail>
                         <h2>{{store.PSCName}}</h2>
                         <h3>{{store.AddressLine}}</h3>
-                        <p>{{'Wait Time : '+store.WaitTimeDescription}} minutes</p>
+                        <ion-thumbnail item-right class="rightThumbnailCustom">
+                            <p>{{store.WaitTimeDescription}} min</p> 
+                        </ion-thumbnail>
                     </ion-item>
                 </ion-list>
             </ion-scroll>
