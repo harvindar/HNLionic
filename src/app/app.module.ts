@@ -48,6 +48,8 @@ import { PopoverPage } from '../pages/popover-page/popover-page';
 import {LabReportPage} from '../pages/lab-report/lab-report';
 import { StoreProvider } from '../providers/store';
 
+import { Pushfire } from '../providers/pushfire';
+
 
 @NgModule({
   declarations: [
@@ -122,6 +124,6 @@ import { StoreProvider } from '../providers/store';
     DemoPage,
     MyProfileTilesPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},GoogleMaps, GoogleMapsCluster, Connectivity, Pushfire, StoreProvider]
 })
 export class AppModule {}

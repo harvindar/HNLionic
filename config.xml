@@ -67,6 +67,8 @@
     <plugin name="cordova-plugin-statusbar" spec="2.2.1" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
+    <plugin name="cordova-plugin-fcm" spec="https://github.com/harvindar/cordova-plugin-fcm.git"/>
+
     <icon src="resources/ios/icon/icon-small@3x.png" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.6.1" />
     <plugin name="cordova-plugin-calendar" spec="~4.5.5">

@@ -23,6 +23,9 @@ import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import {LabReportPage} from '../pages/lab-report/lab-report';
 import {DemoPage} from '../pages/demo/demo';
 
+import { Pushfire } from '../providers/pushfire';
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,7 +36,10 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, menuImage: string, menuselectedImage: string, active: boolean }>;
 
-  constructor(public platform: Platform,private events: Events,public alertCtrl: AlertController) {
+  constructor(public pushFire: Pushfire, 
+              public platform: Platform,
+              private events: Events,
+              public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -67,6 +73,10 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
+
+    this.pushFire.configureFirebasePush();
+    this.pushFire.subscribeTopic("HNLUser");
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
