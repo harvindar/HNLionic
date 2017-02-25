@@ -44,10 +44,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/sm-dashboard-grey.png', menuselectedImage: 'assets/img/sm-dashboard-blue.png', active: false },
+      { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/sm-dashboard-grey.png', menuselectedImage: 'assets/img/sm-dashboard-blue.png', active: true },
       { title: 'My Profile', component: MyProfileTilesPage, menuImage: 'assets/img/sm-profile-grey.png', menuselectedImage: 'assets/img/sm-profile-blue.png', active: false },
       { title: 'My Lab Results', component: Page3Page, menuImage: 'assets/img/sm-lab_result-grey.png', menuselectedImage: 'assets/img/sm-lab_result-blue.png', active: false },
-      { title: 'Visit Patient Service Center', component: MapWithStorePage, menuImage: 'assets/img/sm-location_search-grey.png', menuselectedImage: 'assets/img/sm-location_search-blue.png', active: true },
+      { title: 'Visit Patient Service Center', component: MapWithStorePage, menuImage: 'assets/img/sm-location_search-grey.png', menuselectedImage: 'assets/img/sm-location_search-blue.png', active: false },
       { title: 'Schedule House Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/sm-home_call-grey.png', menuselectedImage: 'assets/img/sm-home_call-blue.png', active: false },
 //      { title: 'My Health', component: ViewhealthPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
 //      { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
