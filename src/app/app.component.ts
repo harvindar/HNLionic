@@ -67,7 +67,7 @@ export class MyApp {
     });
 
     events.subscribe('user:login', (userEventData) => {
-      this.nav.setRoot(MapWithStorePage);
+      this.nav.setRoot(DashboardPage);
     });
   }
 
