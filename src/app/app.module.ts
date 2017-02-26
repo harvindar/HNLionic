@@ -51,6 +51,7 @@ import { StoreProvider } from '../providers/store';
 import { AngularFireModule } from 'angularfire2';
 import { AMPMFormatter } from '../pipes/ampm-formatter';
 import { TrackCallonMapModal } from '../pages/track-callon-map/track-callon-map';
+import { Pushfire } from '../providers/pushfire';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAEHQ4ZL5JyrCHjVIMffRgtiiOwqEHVmTQ",
@@ -137,6 +138,7 @@ export const firebaseConfig = {
     MyProfileTilesPage,
     TrackCallonMapModal
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, StoreProvider]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, Pushfire, StoreProvider]
+
 })
 export class AppModule { }

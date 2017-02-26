@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
 import {Page1} from '../page1/page1';
 
+import {LoginNewPage} from '../login-new/login-new';
+
 
 @Component({
   selector: 'page-demo',

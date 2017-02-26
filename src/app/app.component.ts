@@ -23,6 +23,9 @@ import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import {LabReportPage} from '../pages/lab-report/lab-report';
 import {DemoPage} from '../pages/demo/demo';
 
+import { Pushfire } from '../providers/pushfire';
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,15 +36,18 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any, menuImage: string, menuselectedImage: string, active: boolean }>;
 
-  constructor(public platform: Platform,private events: Events,public alertCtrl: AlertController) {
+  constructor(public pushFire: Pushfire, 
+              public platform: Platform,
+              private events: Events,
+              public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/sm-dashboard-grey.png', menuselectedImage: 'assets/img/sm-dashboard-blue.png', active: false },
+      { title: 'Dashboard', component: DashboardPage, menuImage: 'assets/img/sm-dashboard-grey.png', menuselectedImage: 'assets/img/sm-dashboard-blue.png', active: true },
       { title: 'My Profile', component: MyProfileTilesPage, menuImage: 'assets/img/sm-profile-grey.png', menuselectedImage: 'assets/img/sm-profile-blue.png', active: false },
       { title: 'My Lab Results', component: Page3Page, menuImage: 'assets/img/sm-lab_result-grey.png', menuselectedImage: 'assets/img/sm-lab_result-blue.png', active: false },
-      { title: 'Visit Patient Service Center', component: MapWithStorePage, menuImage: 'assets/img/sm-location_search-grey.png', menuselectedImage: 'assets/img/sm-location_search-blue.png', active: true },
+      { title: 'Visit Patient Service Center', component: MapWithStorePage, menuImage: 'assets/img/sm-location_search-grey.png', menuselectedImage: 'assets/img/sm-location_search-blue.png', active: false },
       { title: 'Schedule House Call', component: ScheduleHomeCallPage, menuImage: 'assets/img/sm-home_call-grey.png', menuselectedImage: 'assets/img/sm-home_call-blue.png', active: false },
 //      { title: 'My Health', component: ViewhealthPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
 //      { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
@@ -61,12 +67,16 @@ export class MyApp {
     });
 
     events.subscribe('user:login', (userEventData) => {
-      this.nav.setRoot(MapWithStorePage);
+      this.nav.setRoot(DashboardPage);
     });
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+
+    this.pushFire.configureFirebasePush();
+    this.pushFire.subscribeTopic("HNLUser");
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
