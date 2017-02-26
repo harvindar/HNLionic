@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "237849399961-cmv0gf1k6g3ld28nfo1sego3i7ev6k2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "infogain.com.psclocator",
+            "certificate_hash": "0c7a015d42502c1b9b08e2097624e79e63bab1df"
+          }
+        },
+        {
           "client_id": "237849399961-cieii65pfeee6pm1um0j0sk5egl0ul0p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -31,8 +31,8 @@
         <ion-list-header>
             My House Call
         </ion-list-header>
-        <ion-item-sliding *ngFor="let item of housecallsList | async">
-            <ion-item (click)="trackCall(item.callinitiated)">
+        <ion-item-sliding *ngFor="let item of housecallsList">
+            <ion-item (click)="trackCall(item)">
                 <ion-card class="project project-radius project-primary">
                     <div class="shape">
                     </div>

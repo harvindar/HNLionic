@@ -54,11 +54,11 @@ import { TrackCallonMapModal } from '../pages/track-callon-map/track-callon-map'
 import { Pushfire } from '../providers/pushfire';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAEHQ4ZL5JyrCHjVIMffRgtiiOwqEHVmTQ",
-  authDomain: "myhnl-efeb9.firebaseapp.com",
-  databaseURL: "https://myhnl-efeb9.firebaseio.com",
-  storageBucket: "myhnl-efeb9.appspot.com",
-  messagingSenderId: "612191887615"
+  apiKey: "AIzaSyDofWEGpk1cOTeqVXAKUigc3-KShK7OHcc",
+  authDomain: "psclocator-155906.firebaseapp.com",
+  databaseURL: "https://psclocator-155906.firebaseio.com",
+  storageBucket: "psclocator-155906.appspot.com",
+  messagingSenderId: "237849399961"
 };
 
 @NgModule({

@@ -17,14 +17,13 @@ import { TrackCallonMapModal } from '../track-callon-map/track-callon-map';
   providers: [Storage]
 })
 export class ScheduleHomeCallPage {
-  housecallsList: FirebaseListObservable<any>;
+  housecallsList: any[] = [];
   storage: Storage;
   nohousecall: boolean = true;
-
+  housecallsListSub: any;
   myhousecalls = [];
 
-  constructor(public navCtrl: NavController, storage: Storage, af: AngularFire, public modalCtrl: ModalController) {
-    this.housecallsList = af.database.list('/housecalls');
+  constructor(public navCtrl: NavController, storage: Storage, public af: AngularFire, public modalCtrl: ModalController) {
     this.storage = storage;
     this.storage.get("user-appointments").then((val) => {
       if (val != null) {
@@ -47,12 +46,25 @@ export class ScheduleHomeCallPage {
 
 
   }
+  ionViewDidEnter() {
+    this.housecallsListSub = this.af.database.list('/housecalls').subscribe(list => {
+      console.log('got data')
+      this.housecallsList = list;
 
-  trackCall(callinitiatedStatus) {
-    if (callinitiatedStatus) {
-      let profileModal = this.modalCtrl.create(TrackCallonMapModal, { userId: 8675309 });
+      if (this.housecallsList.length > 0) {
+        this.nohousecall = false;
+      }
+    });
+
+  }
+  trackCall(call) {
+    if (call.callinitiated) {
+      console.log(call);
+      let profileModal = this.modalCtrl.create(TrackCallonMapModal, { housecallid: call.$key });
       profileModal.present();
     }
   }
-
+  ionViewDidLeave() {
+    this.housecallsListSub.unsubscribe();
+  }
 }
