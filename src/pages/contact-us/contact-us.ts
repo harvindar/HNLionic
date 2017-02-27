@@ -10,7 +10,7 @@ import { InAppBrowser } from 'ionic-native';
   Ionic pages and navigation.
 */
 
-
+declare var window;
 
 @Component({
   selector: 'page-contact-us',
@@ -44,7 +44,9 @@ export class ContactUsPage {
             let browser = new InAppBrowser("https://www.surveymonkey.com/r/F22H7TXm",'_blank');
 
         });
-  }  
+  } 
 
-
+  callIT(passedNumber){
+     window.location = passedNumber;
+    } 
 }
