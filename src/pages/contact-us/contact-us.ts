@@ -46,6 +46,13 @@ export class ContactUsPage {
         });
   } 
 
+    openmyhnllink() {
+        this.platform.ready().then(() => {
+            let browser = new InAppBrowser("https://myhnlaccess.force.com",'_blank');
+
+        });
+  } 
+
   callIT(passedNumber){
      window.location = passedNumber;
     } 
