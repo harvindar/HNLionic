@@ -18,6 +18,10 @@ export class FaqPage {
   private pageTitle:String = "FAQ";
   constructor(public navCtrl: NavController,private navParams: NavParams) {
     this.pageTitle = navParams.get('Title');
+    this.data = navParams.get('data');
+    if(this.data.length == 0) 
+    {
+
     for(let i = 0; i < 10; i++ ){
       this.data.push({
           title: 'Question '+i,
@@ -25,6 +29,8 @@ export class FaqPage {
           icon: 'ios-add-circle-outline',
           showDetails: false
         });
+    }
+
     }
   }
 
