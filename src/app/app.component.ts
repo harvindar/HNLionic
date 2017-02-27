@@ -24,6 +24,7 @@ import {LabReportPage} from '../pages/lab-report/lab-report';
 import {DemoPage} from '../pages/demo/demo';
 
 import { Pushfire } from '../providers/pushfire';
+import {FaqTilesPage} from '../pages/faq-tiles/faq-tiles';
 
 
 @Component({
@@ -53,7 +54,7 @@ export class MyApp {
 //      { title: 'Pay Your Bill', component: PayyourbillPage, menuImage: 'assets/img/about_gray.png', menuselectedImage: 'assets/img/about.png', active: false },
       { title: 'Health Library', component: HealthTipsPage, menuImage: 'assets/img/sm-library-grey.png', menuselectedImage: 'assets/img/sm-library-blue.png', active: false },
       { title: 'Contact Us', component: ContactUsPage, menuImage: 'assets/img/sm-contact_us-grey.png', menuselectedImage: 'assets/img/sm-contact_us-blue.png', active: false },
-      { title: 'FAQ', component: FaqPage, menuImage: 'assets/img/sm-faq-grey.png', menuselectedImage: 'assets/img/sm-faq-blue.png', active: false } ,
+      { title: 'FAQ', component: FaqTilesPage, menuImage: 'assets/img/sm-faq-grey.png', menuselectedImage: 'assets/img/sm-faq-blue.png', active: false } ,
 
 
     ];

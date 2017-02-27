@@ -53,6 +53,8 @@ import { AMPMFormatter } from '../pipes/ampm-formatter';
 import { TrackCallonMapModal } from '../pages/track-callon-map/track-callon-map';
 import { Pushfire } from '../providers/pushfire';
 
+import {FaqTilesPage} from '../pages/faq-tiles/faq-tiles';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDofWEGpk1cOTeqVXAKUigc3-KShK7OHcc",
   authDomain: "psclocator-155906.firebaseapp.com",
@@ -96,6 +98,7 @@ export const firebaseConfig = {
     DemoPage,
     MyProfileTilesPage,
     AMPMFormatter,
+    FaqTilesPage,
     TrackCallonMapModal
   ],
   imports: [
@@ -136,6 +139,7 @@ export const firebaseConfig = {
     HealthTipsPage,
     DemoPage,
     MyProfileTilesPage,
+    FaqTilesPage,
     TrackCallonMapModal
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, Pushfire, StoreProvider]
