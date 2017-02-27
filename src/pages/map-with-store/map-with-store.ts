@@ -6,18 +6,19 @@ import { ListWithStorePage } from '../list-with-store/list-with-store';
 import { PscDetailPage } from '../psc-detail/psc-detail';
 import { PopoverPage } from '../popover-page/popover-page';
 import { StoreProvider } from '../../providers/store';
+import { Geolocation } from 'ionic-native';
 import * as MarkerClusterer from 'node-js-marker-clusterer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
-declare var google:any;
+declare var google: any;
 
 @Component({
   selector: 'page-map-with-store',
   templateUrl: 'map-with-store.html'
 })
 export class MapWithStorePage {
-  isBackVisible:Boolean = false;
+  isBackVisible: Boolean = false;
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
   map: any;
@@ -36,20 +37,30 @@ export class MapWithStorePage {
   ionViewDidLoad(): void {
     console.log('map loading');
     this.locations = this.storeProvider.stores_list;
+    this.locations.forEach((item, index, arr) => {
+      this.onlyLatLngLocations.push(item.Latitude + ',' + item.Longitude);
+    });
     this.platform.ready().then(() => {
       console.log('loading map');
+
       let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then((map) => {
         this.map = map;
+        Geolocation.getCurrentPosition({ maximumAge: 0, enableHighAccuracy: true })
+          .then((location) => {
+            //location.coords.latitude
+            this.currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+            this.map.setCenter(this.currentLocation);
+            //location.coords.latitude + ',' + location.coords.longitude
+            //Hardcoded to 30
+            this.calclateDistance('40.784212, -75.715123', 30);
+          })
+          .catch(err => {
+            this.currentLocation = null;
+          });
         this.bounds = new google.maps.LatLngBounds();
         this.addMarkerswithCluster(map, this.locations);
       });
-      /*this.maps.getCurrentLocation().then(res => {
-        this.currentLocation = res.coords.latitude + ',' + res.coords.longitude;
-        console.log(this.currentLocation);
-      });*/
-      this.locations.forEach((item, index, arr) => {
-        this.onlyLatLngLocations.push(item.Latitude + ',' + item.Longitude);
-      });
+
     });
 
   }
@@ -70,25 +81,7 @@ export class MapWithStorePage {
     });
     popover.onDidDismiss((rangeinkm) => {
       if (rangeinkm != -1 && rangeinkm != null) {
-        this.maps.getNearbyLocations('40.784212, -75.715123', this.onlyLatLngLocations)
-          .then(res => {
-            console.log('distanceapi', res);
-            var nearbylocations: any[] = [];
-            var original_json = this.storeProvider.stores_list;
-            for (var i = 0; i < res.length; i++) {
-              original_json[i].distanceValue = res[i].distanceValue;
-              original_json[i].durationValue = res[i].durationValue;
-              if (Math.round(res[i].distanceValue / 1000) < rangeinkm) {
-                nearbylocations.push(original_json[i]);
-              }
-            }
-            this.locations = nearbylocations;
-            console.log(nearbylocations);
-            this.clearMarkers();
-            this.bounds = new google.maps.LatLngBounds();
-            this.addMarkerswithCluster(this.map, nearbylocations);
-          })
-          .catch(err => { });
+        this.calclateDistance('40.784212, -75.715123', rangeinkm);
       }
       else if (rangeinkm == -1) {
 
@@ -98,6 +91,29 @@ export class MapWithStorePage {
         this.addMarkerswithCluster(this.map, this.locations);
       }
     })
+  }
+  calclateDistance(location, rangeinkm) {
+    this.maps.getNearbyLocations(location, this.onlyLatLngLocations)
+      .then(res => {
+        console.log('distanceapi', res);
+        var nearbylocations: any[] = [];
+        var original_json = this.storeProvider.stores_list;
+        for (var i = 0; i < res.length; i++) {
+          original_json[i].distanceValue = res[i].distanceValue;
+          original_json[i].durationValue = res[i].durationValue;
+          if (Math.round(res[i].distanceValue / 1000) < rangeinkm) {
+            nearbylocations.push(original_json[i]);
+          }
+        }
+        this.locations = nearbylocations;
+        console.log(nearbylocations);
+        this.clearMarkers();
+        this.bounds = new google.maps.LatLngBounds();
+        this.addMarkerswithCluster(this.map, nearbylocations);
+      })
+      .catch(err => {
+        this.map.setCenter(new google.maps.LatLng(40.784212, -75.715123));
+      })
   }
   toPSCDetail(store: any) {
     this.navCtrl.push(PscDetailPage, store);

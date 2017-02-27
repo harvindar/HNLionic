@@ -27,8 +27,11 @@
                         </a>
                     </ion-col>
                     <ion-col width-75>
-                        <button ion-button full large item-right icon-left>
-                            Book an appointment
+                        <button *ngIf="!checkinStatus" ion-button full large item-right icon-left (click)="checkin()">
+                            Check In
+                        </button>
+                        <button *ngIf="checkinStatus" ion-button full large item-right icon-left (click)="notifyforCheckin()">
+                            Notify for Check In
                         </button>
                     </ion-col>
                 </ion-row>
