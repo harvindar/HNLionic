@@ -22,27 +22,28 @@
             <!--<button ion-button color="secondary"  (click)="sethomeaddress()" block>Home</button>
             <button ion-button color="secondary"  (click)="getaddressbygeolocation()"  block  >Use My Location</button>-->
         </ion-list-header>
-
-        <ion-item>
-            <ion-label>Line 1</ion-label>
-            <ion-input type="text" [(ngModel)]="housecallappointment.line1" name="title">
-
-
-            </ion-input>
-            <button ion-button large icon-only item-right (click)="sethomeaddress()">
+ <ion-item>
+            <button ion-button large icon-only item-right style="width:50%" (click)="sethomeaddress()">
                     <ion-icon  name="home"></ion-icon>
             </button>
-            <button ion-button large icon-only item-right (click)="getaddressbygeolocation()">
+            <button ion-button large icon-only item-right style="width:50%" (click)="getaddressbygeolocation()">
                     <ion-icon  name="locate"></ion-icon>
             </button>
         </ion-item>
         <ion-item>
+            <ion-label>Line 1</ion-label>
+            <ion-input type="text" [(ngModel)]="housecallappointment.line1" name="title" >
+            </ion-input>
+            
+        </ion-item>
+        
+        <ion-item>
             <ion-label>Line 2</ion-label>
-            <ion-input type="text" [(ngModel)]="housecallappointment.line2" name="title"></ion-input>
+            <ion-input type="text" [(ngModel)]="housecallappointment.line2" name="title" ></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>City</ion-label>
-            <ion-input type="text" [(ngModel)]="housecallappointment.city" name="title"></ion-input>
+            <ion-input type="text" [(ngModel)]="housecallappointment.city" name="title" ></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>State</ion-label>
@@ -57,10 +58,11 @@
             <ion-datetime min="2017-02-17" displayFormat="MMM DD, YYYY" pickerFormat="MMM DD, YYYY" [(ngModel)]="housecallappointment.Date">
                 <button item-right>Today</button>
             </ion-datetime>
-            <button item-right ion-button large (click)="setdatetoday()"> Today</button>
-            <button item-right ion-button large color="danger" (click)="setdatetomorrow()">Tomorrow</button>
-
         </ion-item>
+        <ion-item>
+            <button item-right ion-button large style="width:50%"  (click)="setdatetoday()"> Today</button>
+            <button item-right ion-button large style="width:50%"   (click)="setdatetomorrow()">Tomorrow</button>
+      </ion-item>
         <ion-item>
             <ion-label>Time</ion-label>
             <ion-datetime displayFormat="HH:mm A" pickerFormat="HH:mm A" [(ngModel)]="housecallappointment.Time" hourValues="07,08,09,10,11,12,13,14,15,16,17"></ion-datetime>
@@ -75,8 +77,9 @@
 <ion-footer>
     <ion-grid>
  <ion-row>     
-  <ion-col width-50><button  ion-button large style="width:100%" color="secondary" (click)="save()">Book Now</button></ion-col>
-  <ion-col width-50><button  ion-button large style="width:100%" (click)="cancel()">Cancel</button></ion-col>
+      <ion-col width-50><button  ion-button large style="width:100%" color="light" (click)="cancel()">Cancel</button></ion-col>
+  <ion-col width-50><button  ion-button large style="width:100%"  (click)="save()">Book Now</button></ion-col>
+ 
 </ion-row>
 </ion-grid>
 </ion-footer>

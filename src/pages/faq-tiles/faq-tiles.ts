@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 
 import {FaqPage} from '../faq/faq';
+import {FaqBillingPage} from '../faq-billing/faq-billing';
 
 
 // import {PatientPage} from '../patient/patient';
@@ -57,7 +58,7 @@ this.grid[2][1] = {Key: "GeneralQuestion", Title: "General Questions", CssClass:
  {
 switch(key) {
 case "BillsPaymentFaq" : 
-this.navCtrl.push(FaqPage,this.grid[0][0]);
+this.navCtrl.push(FaqBillingPage);
 break;
 case "Insurance" : 
 this.navCtrl.push(FaqPage,this.grid[0][1]);

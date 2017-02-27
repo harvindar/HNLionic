@@ -19,19 +19,19 @@ export class GoogleMaps {
   apiKey: string = '';
 
   constructor(public connectivityService: Connectivity) {
-    distanceAPI.apiKey = 'AIzaSyAw-nFMN2BmqvIJFVdtMqe6shhZQq7uuVA';
+    distanceAPI.apiKey = 'AIzaSyDejNq_hdXSUjpRH7nIbckYokwGGEn3GZA';
   }
 
-  init(mapElement: any, pleaseConnect: any): Promise<any> {
+  init(mapElement: any, pleaseConnect: any, location?:any): Promise<any> {
 
     this.mapElement = mapElement;
     this.pleaseConnect = pleaseConnect;
 
-    return this.loadGoogleMaps();
+    return this.loadGoogleMaps(location);
 
   }
 
-  loadGoogleMaps(): Promise<any> {
+  loadGoogleMaps(location?:any): Promise<any> {
 
     return new Promise((resolve) => {
 
@@ -44,7 +44,7 @@ export class GoogleMaps {
 
           window['mapInit'] = () => {
 
-            this.initMap().then((map) => {
+            this.initMap(location).then((map) => {
               resolve(map);
             });
 
@@ -85,7 +85,7 @@ export class GoogleMaps {
 
   }
 
-  initMap(): Promise<any> {
+  initMap(location?:any): Promise<any> {
 
     this.mapInitialised = true;
 
@@ -94,7 +94,8 @@ export class GoogleMaps {
       //Geolocation.getCurrentPosition().then((position) => {
 
       //let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      let latLng = new google.maps.LatLng(40.732, -75.5332);
+      let latLng = location || new google.maps.LatLng(40.732, -75.5332);
+      console.log(location);
       let mapOptions = {
         center: latLng,
         zoom: 12,
@@ -165,7 +166,7 @@ export class GoogleMaps {
         {
           origins: [origins],
           destinations: destinations,
-          sensor: true,
+          sensor: false,
           units: 'imperial'
         },
         (err, data) => {
