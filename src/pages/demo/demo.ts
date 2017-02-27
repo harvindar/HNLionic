@@ -20,28 +20,28 @@ export class DemoPage {
   constructor(public navCtrl: NavController) {
 this.data.push({
       title: "Welcome to Health Network Laboratories!",
-      description: "The <b>Health Network Laboratories (HNL)</b> offers advanced laboratory diagnostic testing at convenient testing locations.",
+      description: "The <b>Health Network Laboratories (HNL)</b> offers advanced laboratory diagnostic testing at convenient testing locations",
       image: "assets/img/ica-slidebox-img-1.png",
     });
 
     this.data.push( {
-      title: "Track you fitness",
-      description: "Health is wealth, keep track of your fitness stats with us.",
+      title: "Track Your Fitness",
+      description: "Health is wealth, keep track of your fitness stats with us",
       image: "assets/img/ica-slidebox-img-2.png",
     });
     this.data.push({
       title: "View Your Test Results",
-      description: "You can get your test results, as soon as they're available",
+      description: "Get your test results as soon as they are available",
       image: "assets/img/ica-slidebox-img-2.png",
     });
     this.data.push({
       title: "Schedule House Call",
-      description: "Get blood work done in comfort of your own home.",
+      description: "Get blood work done in comfort of your own home",
       image: "assets/img/ica-slidebox-img-3.png",
     });
     this.data.push({
-      title: "Test center's Location",
-      description: "Find Test center's near you and book an Appointment easily.",
+      title: "Find Centre Near You",
+      description: "Allows you to find Patient Service Centre near you and check in remotely to avoid waiting time",
       image: "assets/img/ica-slidebox-img-3.png",
     });
 
