@@ -57,12 +57,27 @@ this.grid[2][1] = {Key: "GeneralQuestion", Title: "General Questions", CssClass:
  {
 switch(key) {
 case "BillsPaymentFaq" : 
-
-
+this.navCtrl.push(FaqPage,this.grid[0][0]);
 break;
+case "Insurance" : 
+this.navCtrl.push(FaqPage,this.grid[0][1]);
+break;
+case "TestResults" : 
+this.navCtrl.push(FaqPage,this.grid[1][0]);
+break;
+case "Registration" : 
+this.navCtrl.push(FaqPage,this.grid[1][1]);
+break;
+case "Login" : 
+this.navCtrl.push(FaqPage,this.grid[2][0]);
+break;
+case "GeneralQuestion" : 
+this.navCtrl.push(FaqPage,this.grid[2][1]);
+break;
+
 }
 
-this.navCtrl.push(FaqPage);
+ 
 
  } 
   
