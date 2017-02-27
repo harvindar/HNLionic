@@ -4,12 +4,15 @@ import { GoogleMaps } from '../../providers/google-maps';
 import { AngularFire } from 'angularfire2';
 import { Geolocation } from 'ionic-native';
 
+declare var google:any;
+
+
 @Component({
   selector: 'page-track-callon-map',
   templateUrl: 'track-callon-map.html'
 })
 export class TrackCallonMapModal {
-  map: any;
+    map: any;
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
   callmarker: any;
