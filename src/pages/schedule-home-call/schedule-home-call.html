@@ -27,11 +27,25 @@
             <p>Now you can have blood work done in the comfort of your own home. Click on '+' button to schedule an appointment now</p>
         </ion-card-content>
     </ion-card>
-    <ion-list [hidden]="nohousecall">
-        <ion-list-header>
-            My House Call
-        </ion-list-header>
-        <ion-item-sliding *ngFor="let item of housecallsList">
+    <ion-card class="project project-radius project-primary" [hidden]="!nohousecall">
+                    <div class="project-content">
+                        <span item-left>
+                     <ion-item>
+                    <h1>
+                         <ion-icon name="calendar"></ion-icon>
+
+                    <!--<ion-icon name="calendar"></ion-icon>-->
+               No House Call  
+                </h1>        
+                        </ion-item>
+                    
+                </span>
+                                            </div>
+
+                </ion-card>
+    <ion-list [hidden]="nohousecall">   
+        <h1>My House Call</h1>
+         <ion-item-sliding *ngFor="let item of housecallsList">
             <ion-item (click)="trackCall(item)">
                 <ion-card class="project project-radius project-primary">
                     <div class="shape">
