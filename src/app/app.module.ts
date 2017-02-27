@@ -23,6 +23,7 @@ import { TestDetailPage } from '../pages/test-detail/test-detail';
 import { LoginNewPage } from '../pages/login-new/login-new';
 import { MyProfileTilesPage } from '../pages/my-profile-tiles/my-profile-tiles';
 
+import { FaqBillingPage } from '../pages/faq-billing/faq-billing';
 
 
 
@@ -99,7 +100,8 @@ export const firebaseConfig = {
     MyProfileTilesPage,
     AMPMFormatter,
     FaqTilesPage,
-    TrackCallonMapModal
+    TrackCallonMapModal,
+    FaqBillingPage    
   ],
   imports: [
 
@@ -140,7 +142,8 @@ export const firebaseConfig = {
     DemoPage,
     MyProfileTilesPage,
     FaqTilesPage,
-    TrackCallonMapModal
+    TrackCallonMapModal,
+    FaqBillingPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, Pushfire, StoreProvider]
 
