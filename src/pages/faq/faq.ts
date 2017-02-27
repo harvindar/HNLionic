@@ -15,7 +15,9 @@ export class FaqPage {
 
   data: Array<{title: string, details: string, icon: string, showDetails: boolean}> = [];
 
-  constructor(public navCtrl: NavController) {
+  private pageTitle:String = "FAQ";
+  constructor(public navCtrl: NavController,private navParams: NavParams) {
+    this.pageTitle = navParams.get('Title');
     for(let i = 0; i < 10; i++ ){
       this.data.push({
           title: 'Question '+i,
