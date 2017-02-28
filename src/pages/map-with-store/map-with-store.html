@@ -27,14 +27,19 @@
             </div>
             <ion-scroll class="front" scrollX="true">
                 <ion-list [virtualScroll]="locations">
-                    <ion-item *virtualItem="let store" (click)="toPSCDetail(store)">
+                    <ion-item text-wrap *virtualItem="let store" (click)="toPSCDetail(store)">
                         <ion-thumbnail item-left>
                             <ion-img [src]="store.ImagePath"></ion-img>
                         </ion-thumbnail>
                         <h2>{{store.PSCName}}</h2>
                         <h3>{{store.AddressLine}}</h3>
-
-                        <div item-right><p>{{store.WaitTimeDescription}} min</p></div>
+                        <ion-thumbnail class="ion-right-thumbnail" item-right>
+                            <div class="item-right-waittime">
+                                <h2>{{store.WaitTimeDescription}}
+                                </h2>
+                                <p>Min.</p>
+                            </div>
+                        </ion-thumbnail>
 
                         <!--<ion-thumbnail item-right class="rightThumbnailCustom">
                             <p>{{store.WaitTimeDescription}} min</p> 
