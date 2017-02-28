@@ -28,6 +28,26 @@ page-map-with-store {
         width: 100%;
         height: 100%;
     }
+    .ion-right-thumbnail {
+        position: relative;
+        background-color: #43a047;
+        color: #fff;
+        .item-right-waittime {
+            top: 20px;
+            bottom: 0px;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            h2 {
+                font-weight: 800;
+                font-size: 2.4rem;
+            }
+            p {
+                color: #fff;
+            }
+        }
+    }
     /* entire container, keeps perspective */
     .flip-container {
         perspective: 1000px;
@@ -71,8 +91,7 @@ page-map-with-store {
         transform: rotateY(180deg);
         display: block;
     }
-
-    .rightThumbnailCustom{
+    .rightThumbnailCustom {
         min-width: 40px;
         // background-color: #033e74;
         // color: #fff;
