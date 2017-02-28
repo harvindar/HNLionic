@@ -33,12 +33,18 @@
                         </ion-thumbnail>
                         <h2>{{store.PSCName}}</h2>
                         <h3>{{store.AddressLine}}</h3>
+                        <p class="wait-time">{{store.WaitTimeDescription + ' mins'}}</p>
                         <ion-thumbnail class="ion-right-thumbnail" item-right>
                             <div class="item-right-waittime">
-                                <h2>{{store.WaitTimeDescription}}
+                                <h2>{{store.durationValue | secondsTominute}}
+                                    <p>mins</p>
                                 </h2>
-                                <p>Min.</p>
                             </div>
+                            <!-- <div class="item-right-waittime">
+                                <h2>{{store.distanceValue}}
+                                    <p>Miles.</p>
+                                </h2>
+                            </div>-->
                         </ion-thumbnail>
 
                         <!--<ion-thumbnail item-right class="rightThumbnailCustom">
