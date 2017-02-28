@@ -30,7 +30,7 @@ export class LabReportPage {
 SocialSharing.canShareViaEmail().then(() => {
   // Sharing via email is possible
   let files = ['assets/HNLResult.pdf'] ;
-  SocialSharing.shareViaEmail('My Lab Result', 'My Lab Reult',['email@server.com']) .then(() => {
+  SocialSharing.shareViaEmail('My Lab Result', 'My Lab Reult',['email@server.com'],[],[],['www/assets/HNLResult.pdf']) .then(() => {
   // Success!
   console.log("Email Success");
 }).catch(() => {
