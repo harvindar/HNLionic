@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 //import { PdfViewerComponent } from 'ng2-pdf-viewer';
+import { SocialSharing } from 'ionic-native';
+
 
 /*
   Generated class for the LabReport page.
@@ -22,5 +24,23 @@ export class LabReportPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LabReportPage');
   }
+
+
+  shareonemail (event) {
+SocialSharing.canShareViaEmail().then(() => {
+  // Sharing via email is possible
+  let files = ['assets/HNLResult.pdf'] ;
+  SocialSharing.shareViaEmail('My Lab Result', 'My Lab Reult',['email@server.com']) .then(() => {
+  // Success!
+  console.log("Email Success");
+}).catch(() => {
+  console.log("Email Share is not working");
+});
+}).catch(() => {
+  console.log("Email Share is disable");
+
+});
+
+}
 
 }
