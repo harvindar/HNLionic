@@ -16,21 +16,26 @@ import { PopoverGeneric } from '../popover-generic/popover-generic';
 })
 export class Page3Page {
 
-  reports: Array<{ title: string, date: string, filePath: string }>;
+  reports: Array<{ title: string, date: string, filePath: string,provider:string, accession:string ,datetime:string}>;
 
+    dateSortedReport = [
+      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf',provider:"ANDRAW BLACK", accession:"N10004063",datetime:"10 MAR" },
+      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf',provider:"BURTON MARK", accession:"N10004065" ,datetime:"13 MAR"},
+      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' ,provider:"ANDRAW BLACK", accession:"N10004083",datetime:"16 MAR"},
+      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' ,provider:"BURTON MARK", accession:"N10004083",datetime:"18 MAR"}
+    ];
+
+    providerSortedReport = [
+      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf',provider:"ANDRAW BLACK", accession:"N10004063",datetime:"10 MAR" },
+      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' ,provider:"ANDRAW BLACK", accession:"N10004083",datetime:"16 MAR"},
+      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf',provider:"BURTON MARK", accession:"N10004065" ,datetime:"13 MAR"},
+      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' ,provider:"BURTON MARK", accession:"N10004083",datetime:"18 MAR"}
+    ];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private popoverCtrl: PopoverController) {
 
-    this.reports = [
-      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf' },
-      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf' },
-      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' },
-      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' }
-    ];
-
-
-
+    this.reports = this.dateSortedReport; 
   }
 
   ionViewDidLoad() {
@@ -48,8 +53,18 @@ presentPopover(ev) {
     popover.present({
       ev: ev
     });
-    popover.onDidDismiss((rangeinkm) => {
-      
+    popover.onDidDismiss((sortOption) => {
+
+      switch(sortOption)
+      {
+        case "By Provider":
+        this.reports = this.providerSortedReport;
+        break;
+        default:
+        this.reports = this.dateSortedReport; 
+        break;
+      }
+      console.log("print option is " + sortOption);
     })
   }
 

@@ -26,8 +26,10 @@
 
 <ion-list>
   <button ion-item *ngFor="let report of reports" (click)="itemSelected(report)">
-    {{ report.title }}
-    <p>{{report.date}}</p>
+    Provider: {{report.provider }}
+    <p>Accession: {{report.accession}}</p>
+    <p>Date: {{report.datetime}}</p>
+
   </button>  
 </ion-list>
 
