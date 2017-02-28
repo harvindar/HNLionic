@@ -42,9 +42,9 @@ export class ScheduleHomeCallPage {
     this.navCtrl.push(ViewTestPage);
   }
 
-  deletehousecall(event, item) {
-
-
+  deletehousecall(itemkey) {
+    console.log(itemkey);
+    this.af.database.object('/housecalls/' + itemkey).remove();
   }
   ionViewDidEnter() {
     this.housecallsListSub = this.af.database.list('/housecalls').subscribe(list => {
