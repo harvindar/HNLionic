@@ -48,7 +48,7 @@
          <ion-item-sliding *ngFor="let item of housecallsList">
             <ion-item (click)="trackCall(item)">
                 <ion-card class="project project-radius project-primary">
-                    <div class="active_shape">
+                    <div [class]="item.callinitiated ? 'active_shape' : 'shape' ">
                     </div>
                     <div class="project-content">
                         <span item-left>
