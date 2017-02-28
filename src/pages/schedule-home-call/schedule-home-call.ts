@@ -50,6 +50,7 @@ export class ScheduleHomeCallPage {
     this.housecallsListSub = this.af.database.list('/housecalls').subscribe(list => {
       console.log('got data')
       this.housecallsList = list;
+      console.log(this.housecallsList)
 
       if (this.housecallsList.length > 0) {
         this.nohousecall = false;
