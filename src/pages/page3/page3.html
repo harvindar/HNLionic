@@ -10,6 +10,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+
+    <ion-buttons end>
+            <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon ios="md-funnel" md="md-funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+
     <ion-title>My Lab Results</ion-title>
   </ion-navbar>
 </ion-header>

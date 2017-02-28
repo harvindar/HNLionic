@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import {LabReportPage} from '../lab-report/lab-report';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
+import { LabReportPage } from '../lab-report/lab-report';
+import { PopoverGeneric } from '../popover-generic/popover-generic';
+
 
 /*
   Generated class for the Page3 page.
@@ -18,7 +20,7 @@ export class Page3Page {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private popoverCtrl: PopoverController) {
 
     this.reports = [
       { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf' },
@@ -38,6 +40,17 @@ export class Page3Page {
   itemSelected(report :any)
   {
         this.navCtrl.push(LabReportPage, report);
+  }
+
+presentPopover(ev) {
+    let popover = this.popoverCtrl.create(PopoverGeneric, {options:["By Date", "By Provider"]
+    });
+    popover.present({
+      ev: ev
+    });
+    popover.onDidDismiss((rangeinkm) => {
+      
+    })
   }
 
 }

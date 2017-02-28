@@ -45,6 +45,7 @@ import { ListWithStorePage } from '../pages/list-with-store/list-with-store';
 import { ParallaxHeader } from '../components/parallax-header/parallax-header';
 import { ScrollableTabs } from '../components/scrollable-tabs/scrollable-tabs';
 import { PopoverPage } from '../pages/popover-page/popover-page';
+import { PopoverGeneric } from '../pages/popover-generic/popover-generic';
 import { LabReportPage } from '../pages/lab-report/lab-report';
 import { StoreProvider } from '../providers/store';
 
@@ -79,6 +80,7 @@ export const firebaseConfig = {
     ScrollableTabs,
     HealthTipsPage,
     PopoverPage,
+    PopoverGeneric,
     LabReportPage,
     FaqPage,
     ContactUsPage,
@@ -121,6 +123,7 @@ export const firebaseConfig = {
     MapWithStorePage,
     ListWithStorePage,
     PopoverPage,
+    PopoverGeneric,
     LabReportPage,
     ContactUsPage,
     FaqPage,
