@@ -76,9 +76,9 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreenDelay" value="10000" />
-    <preference name="AutoHideSplashScreen" value="false"/>
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="UseLegacySwiftLanguageVersion" value="true"/>
+    <preference name="UseLegacySwiftLanguageVersion" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -100,4 +100,5 @@
     <plugin name="cordova-plugin-nativegeocoder" spec="~1.0.1" />
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <plugin name="cordova-plugin-geofence" spec="https://github.com/jtushar53/cordova-plugin-geofence.git" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="~5.1.6" />
 </widget>
