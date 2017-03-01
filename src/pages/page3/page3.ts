@@ -19,17 +19,17 @@ export class Page3Page {
   reports: Array<{ title: string, date: string, filePath: string,provider:string, accession:string ,datetime:string}>;
 
     dateSortedReport = [
-      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf',provider:"ANDRAW BLACK", accession:"N10004063",datetime:"10 MAR", imagePath: 'assets/img/10Mar.png' },
-      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf',provider:"BURTON MARK", accession:"N10004065" ,datetime:"13 MAR", imagePath: 'assets/img/13Mar.png'},
-      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' ,provider:"ANDRAW BLACK", accession:"N10004083",datetime:"16 MAR", imagePath: 'assets/img/16Mar.png'},
-      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' ,provider:"BURTON MARK", accession:"N10004083",datetime:"18 MAR", imagePath: 'assets/img/18Mar.png'}
+      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf',provider:"ANDRAW BLACK", accession:"N10004063",datetime:"10 JAN", imagePath: 'assets/img/10Mar.png' },
+      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf',provider:"BURTON MARK", accession:"N10004065" ,datetime:"13 JAN", imagePath: 'assets/img/13Mar.png'},
+      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' ,provider:"ANDRAW BLACK", accession:"N10004083",datetime:"16 JAN", imagePath: 'assets/img/16Mar.png'},
+      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' ,provider:"BURTON MARK", accession:"N10004083",datetime:"18 JAN", imagePath: 'assets/img/18Mar.png'}
     ];
 
     providerSortedReport = [
-      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf',provider:"ANDRAW BLACK", accession:"N10004063",datetime:"10 MAR" , imagePath: 'assets/img/10Mar.png'},
-      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' ,provider:"ANDRAW BLACK", accession:"N10004083",datetime:"16 MAR", imagePath: 'assets/img/16Mar.png'},
-      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf',provider:"BURTON MARK", accession:"N10004065" ,datetime:"13 MAR", imagePath: 'assets/img/13Mar.png'},
-      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' ,provider:"BURTON MARK", accession:"N10004083",datetime:"18 MAR", imagePath: 'assets/img/18Mar.png'}
+      { title: 'Report One', date: "2017-02-12", filePath: 'assets/labReport.pdf',provider:"ANDRAW BLACK", accession:"N10004063",datetime:"10 JAN" , imagePath: 'assets/img/10Mar.png'},
+      { title: 'Report Three', date: "2016-12-12", filePath: 'assets/labReport.pdf' ,provider:"ANDRAW BLACK", accession:"N10004083",datetime:"16 JAN", imagePath: 'assets/img/16Mar.png'},
+      { title: 'Report Two', date: "2017-01-10", filePath: 'assets/labReport.pdf',provider:"BURTON MARK", accession:"N10004065" ,datetime:"13 JAN", imagePath: 'assets/img/13Mar.png'},
+      { title: 'Report Four', date: "2016-06-10", filePath: 'assets/labReport.pdf' ,provider:"BURTON MARK", accession:"N10004083",datetime:"18 JAN", imagePath: 'assets/img/18Mar.png'}
     ];
 
 
