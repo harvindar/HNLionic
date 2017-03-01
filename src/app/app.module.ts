@@ -59,6 +59,10 @@ import { SecondsToMinute } from '../pipes/seconds-to-minute';
 import { FeetToMile } from '../pipes/feet-to-mile';
 import { FaqBillingPage } from '../pages/faq-billing/faq-billing';
 
+import '../../node_modules/chart.js/dist/Chart.min.js';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDofWEGpk1cOTeqVXAKUigc3-KShK7OHcc",
   authDomain: "psclocator-155906.firebaseapp.com",
@@ -114,7 +118,7 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'top'
     }),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -143,4 +143,55 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <div class="col-md-6">
+ 
+
+ <div padding>
+  <ion-segment  color="secondary" [(ngModel)]="graphtype">
+    <ion-segment-button value="Weekly">
+     Weekly
+    </ion-segment-button>
+    <ion-segment-button value="Monthly" >
+      Monthly
+    </ion-segment-button>
+      <ion-segment-button value="All" >
+      All
+    </ion-segment-button>
+  </ion-segment>
+</div>
+Blood Glucosoe (mg/dL)
+    <canvas baseChart [hidden]="!(graphtype == 'Weekly')"
+                [data]= "lineChartData"
+                [labels]="lineChartLabels"
+                [chartType]="lineChartType" 
+                [options]="lineChartOptions"               
+                ></canvas>
+
+    <canvas baseChart [hidden]="!(graphtype == 'Monthly')"
+                [data]= "MonthlyChartData"
+                [labels]="MonthlyLabels"
+                [chartType]="MonthlyChartType"
+                [options]="lineChartOptions"                
+                ></canvas>
+<div  [hidden]="!(graphtype == 'All')">
+    <ion-segment  color="secondary" [(ngModel)]="AlllChartType">
+    <ion-segment-button value="line">
+     Line
+    </ion-segment-button>
+    <ion-segment-button value="bar" >
+      Bar
+    </ion-segment-button>
+      <ion-segment-button value="doughnut" >
+      Doughnut
+    </ion-segment-button>
+  </ion-segment>
+           <canvas baseChart
+                [data]= "AllChartData"
+                [labels]="AllLabels"
+                [chartType]="AlllChartType" 
+                ></canvas>
+
+</div>
+           
+    </div>
 </ion-content>
