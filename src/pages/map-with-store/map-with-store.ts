@@ -116,6 +116,8 @@ export class MapWithStorePage {
         nearbylocations.sort(function (a, b) {
           return a.WaitTimeDescription - b.WaitTimeDescription;
         });
+console.log(JSON.stringify(nearbylocations));
+        
         this.locations = nearbylocations;
         console.log(this.locations);
         this.clearMarkers();

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { Geofence, LaunchNavigatorOptions, LaunchNavigator } from 'ionic-native';
 
+declare var window: any;
 @Component({
   selector: 'page-psc-detail',
   templateUrl: 'psc-detail.html'
@@ -28,16 +29,16 @@ export class PscDetailPage {
     })
   }
 
-  navigateFromGooglemap(latlng) {
-        if (this.platform.is('ios')) {
-          window.open('maps:?daddr=' + latlng, '_system');
-        }
-        else if (this.platform.is('android')) {
-          window.open('geo:daddr=' + latlng, '_system');
-        }
+  navigateFromGooglemap(lat, lng) {
+    /*        if (this.platform.is('ios')) {
+              window.open('maps:?daddr=' + latlng, '_system');
+            }
+            else if (this.platform.is('android')) {
+              window.open('geo:daddr=' + latlng, '_system');
+            }*/
+    location.href = "http://maps.google.com/maps?daddr=" + lat + "," + lng + "&mode=driving";
 
-/*
-    LaunchNavigator.navigate([latlng])
+    /*LaunchNavigator.navigate([latlng])
       .then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)

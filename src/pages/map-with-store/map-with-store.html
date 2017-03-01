@@ -33,7 +33,7 @@
                         </ion-thumbnail>
                         <h2>{{store.PSCName}}</h2>
                         <h3>{{store.AddressLine}}</h3>
-                        <p class="wait-time" *ngIf="store.durationValue">{{'Duration'+store.durationValue | secondsTominute}}</p>
+                        <p class="wait-time" *ngIf="store.durationValue">{{store.durationValue | secondsTominute}} Miles</p>
                         <ion-thumbnail class="ion-right-thumbnail" item-right>
                             <div class="item-right-waittime">
                                 <p>Wait time</p>
@@ -58,6 +58,6 @@
     </div>
 
     <ion-fab right bottom>
-        <button ion-fab (click)="toggleView()"><ion-icon name="{{isBackVisible ? 'map' : 'list'}}"></ion-icon></button>
+        <button color="secondary" ion-fab (click)="toggleView()"><ion-icon name="{{isBackVisible ? 'map' : 'list'}}"></ion-icon></button>
     </ion-fab>
 </ion-content>
