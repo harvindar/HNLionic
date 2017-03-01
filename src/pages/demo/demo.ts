@@ -49,7 +49,7 @@ this.data.push({
   }
 
 navigatetohome(event) {
-this.navCtrl.setRoot(Page1);
+this.navCtrl.setRoot(LoginNewPage);
 
 }
 
