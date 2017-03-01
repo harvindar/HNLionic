@@ -2,10 +2,11 @@
 
     <ion-navbar>
         <ion-buttons end>
-            <button ion-button icon-only>
-               <ion-icon name="navigate"></ion-icon>
+            <button ion-button icon-only (click)="navigateFromGooglemap(this.pscdetail.Latitude +','+ this.pscdetail.Longitude)">
+               <ion-icon class="navigate-icon" name="navigate"></ion-icon>
             </button>
         </ion-buttons>
+        <ion-title>{{pscdetail.PSCName}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -16,26 +17,30 @@
     <div class="main-content">
         <ion-list no-lines>
             <ion-item text-wrap>
-                <h1><b>{{pscdetail.PSCName}}</b></h1>
-                <p>{{pscdetail.County + ',' + pscdetail.City}}</p>
+                <!--<h1><b>{{pscdetail.PSCName}}</b></h1>-->
+                <h1>{{pscdetail.County + ',' + pscdetail.City}}</h1>
                 <ion-row>
                     <ion-col width-25>
-                        <a item-right href="{{'tel:'+ pscdetail.Phone}}">
-                            <button large ion-button icon-only clear>
+                        <!--<a item-right href="{{'tel:'+ pscdetail.Phone}}">-->
+                        <button ion-button outline block icon-only>
                                 <ion-icon name="call"></ion-icon>
                             </button>
-                        </a>
+                        <!-- </a>-->
                     </ion-col>
                     <ion-col width-75>
-                        <button *ngIf="!checkinStatus" ion-button full large item-right icon-left (click)="checkin()">
+                        <button *ngIf="!checkinStatus" ion-button block (click)="checkin()">
                             Check In
                         </button>
-                        <button *ngIf="checkinStatus" ion-button full large item-right icon-left (click)="notifyforCheckin()">
+                        <button *ngIf="checkinStatus" ion-button block (click)="notifyforCheckin()">
                             Notify for Check In
                         </button>
                     </ion-col>
                 </ion-row>
 
+            </ion-item>
+            <ion-item>
+                <h2>Wait Time</h2>
+                <p>{{pscdetail.WaitTimeDescription}}</p>
             </ion-item>
             <ion-item text-wrap>
                 <h2>Address</h2>
@@ -45,10 +50,7 @@
                     <span *ngIf="pscdetail.AddressLine3">{{ ', '+ pscdetail.AddressLine3 }}</span>
                 </p>
             </ion-item>
-            <ion-item>
-                <h2>Wait Time</h2>
-                <p>{{pscdetail.WaitTimeDescription}}</p>
-            </ion-item>
+
             <ion-item text-wrap>
                 <h2>Bussiness Hours</h2>
                 <p>{{pscdetail.BussinessHours}}</p>

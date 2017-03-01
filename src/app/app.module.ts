@@ -55,6 +55,9 @@ import { TrackCallonMapModal } from '../pages/track-callon-map/track-callon-map'
 import { Pushfire } from '../providers/pushfire';
 
 import {FaqTilesPage} from '../pages/faq-tiles/faq-tiles';
+import { SecondsToMinute } from '../pipes/seconds-to-minute';
+import { FeetToMile } from '../pipes/feet-to-mile';
+import { FaqBillingPage } from '../pages/faq-billing/faq-billing';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDofWEGpk1cOTeqVXAKUigc3-KShK7OHcc",
@@ -100,8 +103,11 @@ export const firebaseConfig = {
     DemoPage,
     MyProfileTilesPage,
     AMPMFormatter,
+    SecondsToMinute,
+    FeetToMile,
     FaqTilesPage,
-    TrackCallonMapModal        
+    TrackCallonMapModal,
+    FaqBillingPage       
   ],
   imports: [
 
@@ -143,7 +149,8 @@ export const firebaseConfig = {
     DemoPage,
     MyProfileTilesPage,
     FaqTilesPage,
-    TrackCallonMapModal    
+    TrackCallonMapModal,
+    FaqBillingPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, GoogleMaps, GoogleMapsCluster, Connectivity, Pushfire, StoreProvider]
 

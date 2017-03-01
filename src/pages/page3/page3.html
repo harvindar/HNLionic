@@ -6,31 +6,33 @@
 -->
 
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-buttons end>
+        <ion-buttons end>
             <button ion-button icon-only (click)="presentPopover($event)">
         <ion-icon ios="md-funnel" md="md-funnel"></ion-icon>
       </button>
-    </ion-buttons>
+        </ion-buttons>
 
-    <ion-title>My Lab Results</ion-title>
-  </ion-navbar>
+        <ion-title>My Lab Results</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-<ion-list>
-  <button ion-item *ngFor="let report of reports" (click)="itemSelected(report)">
+    <ion-list>
+        <button ion-item *ngFor="let report of reports" (click)="itemSelected(report)">
     Provider: {{report.provider }}
     <p>Accession: {{report.accession}}</p>
     <p>Date: {{report.datetime}}</p>
-
-  </button>  
-</ion-list>
+ <ion-thumbnail item-right>
+                            <ion-img [src]="report.imagePath"></ion-img>
+                        </ion-thumbnail>
+  </button>
+    </ion-list>
 
 </ion-content>

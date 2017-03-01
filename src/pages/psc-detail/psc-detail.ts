@@ -22,7 +22,14 @@ export class PscDetailPage {
         () => console.log('Geofence Plugin Ready'),
         (err) => console.log(err)
       )
+      Geofence.onNotificationClicked().subscribe(res => {
+        console.log('gefence notification clicked', res);
+      })
     })
+  }
+
+  navigateFromGooglemap(latlng) {
+      window.open('maps://?q=' + latlng, '_system');
   }
   ionViewDidEnter() {
     this.pscdetail = this.navParams.data;
@@ -31,31 +38,37 @@ export class PscDetailPage {
     if (Math.floor(this.pscdetail.durationValue % 3600 / 60) > 30) {
       this.checkinStatus = true;
     }
+    else {
+      this.checkinStatus = false;
+    }
   }
   checkin() {
   }
   notifyforCheckin() {
-    this.addGeofence(this.pscdetail, 20);
+    this.addGeofence(this.pscdetail, 5);
   }
   addGeofence(pscdetail, radius) {
     //options describing geofence
     let fence = {
       id: pscdetail.ClientID, //any unique ID
-      latitude: pscdetail.Latitude, //center of geofence radius
-      longitude: pscdetail.Longitude,
+      latitude: 19.091986, //pscdetail.Latitude, //center of geofence radius
+      longitude: 72.827996,//pscdetail.Longitude,
       radius: radius, //radius to edge of geofence
-      transitionType: 1, //see 'Transition Types' below
+      transitionType: 3, //see 'Transition Types' below
       notification: { //notification settings
         id: pscdetail.ClientID, //any unique ID
         title: "You are near your store", //notification title
-        text: "You just arrived at "+pscdetail.AddressLine, //notification body
+        text: "You just arrived at " + pscdetail.AddressLine, //notification body
         openAppOnClick: true //open app when notification is tapped
       }
     }
-
+    console.log(fence);
     Geofence.addOrUpdate(fence).then(
       () => console.log('Geofence added'),
       (err) => console.log('Geofence failed to add')
     );
+    Geofence.onTransitionReceived().subscribe(res => {
+      console.log(res);
+    })
   }
 }

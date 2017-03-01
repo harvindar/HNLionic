@@ -29,6 +29,8 @@ export class MapWithStorePage {
   markers: any = [];
   bounds: any;
   @ViewChild('flipContainer') flipContainer: ElementRef;
+  sortStatus: string = 'ascend';
+
   constructor(public navCtrl: NavController, public storeProvider: StoreProvider, private popoverCtrl: PopoverController, public platform: Platform, public maps: GoogleMaps, public mapCluster: GoogleMapsCluster) {
 
 
