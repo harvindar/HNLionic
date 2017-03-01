@@ -15,7 +15,7 @@
 
 
 <ion-content>
-    <!--<ion-grid class="details-page">
+    <ion-grid class="details-page">
         <ion-row>
 
             <ion-col width-33 class="glucoseBG">
@@ -142,9 +142,8 @@
                 </ion-row>
             </ion-col>
         </ion-row>
-    </ion-grid>-->
+    </ion-grid>
     <div class="col-md-6">
- 
 
  <div padding>
   <ion-segment  color="secondary" [(ngModel)]="graphtype">
@@ -159,37 +158,20 @@
     </ion-segment-button>
   </ion-segment>
 </div>
-Blood Glucosoe (mg/dL)
-    <div style="display: block;">
-
     <canvas baseChart [hidden]="!(graphtype == 'Weekly')"
-                [data]= "lineChartData"
+                [datasets]= "lineChartData"
                 [labels]="lineChartLabels"
                 [chartType]="lineChartType" 
-                                [options]="lineChartOptions"                
-
                 ></canvas>
-    </div>
+
     <canvas baseChart [hidden]="!(graphtype == 'Monthly')"
-                [data]= "MonthlyChartData"
+                [datasets]= "MonthlyChartData"
                 [labels]="MonthlyLabels"
                 [chartType]="MonthlyChartType"
-                [options]="lineChartOptions"                
                 ></canvas>
-<div  [hidden]="!(graphtype == 'All')">
-    <ion-segment  color="secondary" [(ngModel)]="AlllChartType">
-    <ion-segment-button value="line">
-     Line
-    </ion-segment-button>
-    <ion-segment-button value="bar" >
-      Bar
-    </ion-segment-button>
-      <ion-segment-button value="doughnut" >
-      Doughnut
-    </ion-segment-button>
-  </ion-segment>
+<div  [hidden]="!(graphtype == 'All')">    
            <canvas baseChart
-                [data]= "AllChartData"
+                [datasets]= "AllChartData"
                 [labels]="AllLabels"
                 [chartType]="AlllChartType" 
                 ></canvas>
@@ -197,4 +179,20 @@ Blood Glucosoe (mg/dL)
 </div>
            
     </div>
+    <ion-grid class="button-group">
+  <ion-row>
+    <ion-col width-65>
+    </ion-col>    
+    <ion-col width-12>
+      <button ion-button block outline><img src="assets/img/Line-Chart-icon.png" (click)="setgraph('line')" />
+</button>
+    </ion-col >
+    <ion-col  width-12>
+      <button ion-button block color="secondary" outline  (click)="setgraph('bar')"><img src="assets/img/bar-chart-icon-63290.png"/></button>
+    </ion-col>  
+    <ion-col  width-12>
+      <button ion-button block  color="danger" outline  (click)="setgraph('doughnut')"><img src="assets/img/pie-chart-4.png"/></button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>
