@@ -19,14 +19,17 @@ import { AngularFire } from 'angularfire2';
   providers: [Storage]
 })
 export class BookHouseCallPage {
-
-  housecallappointment;
-  storage: Storage;
-  selectedtest: Array<{ title: string, selected: Boolean, id: Number }> = [];
-  mindate: String;
+ housecallappointment;
+ value;
+ storage: Storage;
+ selectedtest: Array<{ title: string, selected: Boolean, id: Number }> = [];
+ mindate: String;
+ public m_type: String = "d";
+ public m_select: string = "1";
+ public repeatselected: boolean = false;
+ public showitem: boolean = false;
 
   constructor(public navCtrl: NavController, public af: AngularFire, public navParams: NavParams, storage: Storage, public toastCtrl: ToastController, public http: Http) {
-
     this.housecallappointment = { line1: '', line2: '', city: '', state: '', zip: '' };
     this.storage = storage;
     this.storage.get("user-selectedtest").then((val) => {
@@ -34,8 +37,21 @@ export class BookHouseCallPage {
       this.mindate = new Date().toISOString().slice(0, 10);;
       console.log(this.mindate);
     });
-
   }
+
+  onChange(){
+    console.log("Inside onchange" + this.m_type);
+    
+    switch(this.m_type)
+        {
+            case "d":
+                                this.showitem = false;
+                break;
+            case "w":
+                                this.showitem = true;
+                break;
+        }
+}
 
   sethomeaddress(event) {
     let defaultaddress = this.gethomeaddress();
