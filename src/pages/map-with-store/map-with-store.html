@@ -33,10 +33,10 @@
                         </ion-thumbnail>
                         <h2>{{store.PSCName}}</h2>
                         <h3>{{store.AddressLine}}</h3>
-                        <p class="wait-time" *ngIf="store.durationValue">{{store.durationValue | secondsTominute}}</p>
+                        <p class="wait-time" *ngIf="store.durationValue">{{'Duration'+store.durationValue | secondsTominute}}</p>
                         <ion-thumbnail class="ion-right-thumbnail" item-right>
                             <div class="item-right-waittime">
-                                <p>Wait time:</p>
+                                <p>Wait time</p>
                                 <h2>{{store.WaitTimeDescription}}
                                     <p>mins</p>
                                 </h2>
