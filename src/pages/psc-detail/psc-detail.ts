@@ -36,13 +36,13 @@ export class PscDetailPage {
             else if (this.platform.is('android')) {
               window.open('geo:daddr=' + latlng, '_system');
             }*/
-    location.href = "http://maps.google.com/maps?daddr=" + lat + "," + lng + "&mode=driving";
+    //location.href = "http://maps.google.com/maps?daddr=" + lat + "," + lng + "&mode=driving";
 
-    /*LaunchNavigator.navigate([latlng])
+    LaunchNavigator.navigate(lat + ',' + lng)
       .then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
-      );*/
+      );
   }
   ionViewDidEnter() {
     this.pscdetail = this.navParams.data;
