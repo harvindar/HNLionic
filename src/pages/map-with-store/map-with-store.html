@@ -26,7 +26,7 @@
                 <div #map id="map"></div>
             </div>
             <ion-scroll class="front" scrollX="true">
-                <ion-list [virtualScroll]="locations">
+                <ion-list [virtualScroll]="locations" class="psc-list">
                     <ion-item text-wrap *virtualItem="let store" (click)="toPSCDetail(store)">
                         <ion-thumbnail item-left>
                             <ion-img [src]="store.ImagePath"></ion-img>

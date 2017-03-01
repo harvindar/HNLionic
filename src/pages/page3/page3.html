@@ -22,14 +22,14 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
     <ion-list>
         <button ion-item *ngFor="let report of reports" (click)="itemSelected(report)">
-    Provider: {{report.provider }}
-    <p>Accession: {{report.accession}}</p>
+  <p>  Provider:  <b>{{report.provider }}</b></p>  
+   <p>  Accession:  <b>{{report.accession}}</b></p>
  <ion-thumbnail item-left>
-                            <ion-img [src]="report.imagePath"></ion-img>
+                            <img [src]="report.imagePath" />
                         </ion-thumbnail>
   </button>
     </ion-list>
