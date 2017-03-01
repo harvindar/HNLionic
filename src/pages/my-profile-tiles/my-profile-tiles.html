@@ -10,8 +10,8 @@
 
 <ion-grid>
   <ion-row *ngFor="let row of grid">
-    <ion-col width-50 *ngFor="let obj of row">
-      <img [src]="obj.Image"(click)="showPage($event, obj.Key)">
+    <ion-col width-50 *ngFor="let obj of row" >
+      <img [src]="obj.Image"(click)="showPage($event, obj.Key)" style="background-color: darkslateblue">
     </ion-col>
   </ion-row>
 </ion-grid>

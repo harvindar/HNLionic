@@ -32,19 +32,19 @@ this.grid = Array(3);
 
 this.grid[0] = Array(2);
 
-this.grid[0][0] = {Key: "PatientPage", Image : "assets/img/online-patient.png"};
-this.grid[0][1] = {Key: "PaymentPage", Image : "assets/img/pay-your-bill.png"};
+this.grid[0][0] = {Key: "PatientPage", Image : "assets/img/patient_care.png"};
+this.grid[0][1] = {Key: "PaymentPage", Image : "assets/img/pay_your_bills.png"};
 
 this.grid[1] = Array(2);
 
 
-this.grid[1][0] = {Key: "InsuranceInfoPage", Image : "assets/img/view-health.png"};
-this.grid[1][1] = {Key: "SharedAccountPage", Image : "assets/img/view-lab-results.png"};
+this.grid[1][0] = {Key: "InsuranceInfoPage", Image : "assets/img/my_insurance.png"};
+this.grid[1][1] = {Key: "SharedAccountPage", Image : "assets/img/shared_accounts.png"};
 
 this.grid[2] = Array(2);
 
-this.grid[2][0] = {Key: "NotificationsPage", Image : "assets/img/online-patient.png"};
-this.grid[2][1] = {Key: "WellnessPage", Image : "assets/img/pay-your-bill.png"};
+this.grid[2][0] = {Key: "NotificationsPage", Image : "assets/img/notifications.png"};
+this.grid[2][1] = {Key: "WellnessPage", Image : "assets/img/wellness.png"};
 
 
   }

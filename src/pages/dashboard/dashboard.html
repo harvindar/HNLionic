@@ -15,7 +15,7 @@
 
 
 <ion-content>
-    <ion-grid class="details-page">
+    <!--<ion-grid class="details-page">
         <ion-row>
 
             <ion-col width-33 class="glucoseBG">
@@ -142,7 +142,7 @@
                 </ion-row>
             </ion-col>
         </ion-row>
-    </ion-grid>
+    </ion-grid>-->
     <div class="col-md-6">
  
 
@@ -160,13 +160,16 @@
   </ion-segment>
 </div>
 Blood Glucosoe (mg/dL)
+    <div style="display: block;">
+
     <canvas baseChart [hidden]="!(graphtype == 'Weekly')"
                 [data]= "lineChartData"
                 [labels]="lineChartLabels"
                 [chartType]="lineChartType" 
-                [options]="lineChartOptions"               
-                ></canvas>
+                                [options]="lineChartOptions"                
 
+                ></canvas>
+    </div>
     <canvas baseChart [hidden]="!(graphtype == 'Monthly')"
                 [data]= "MonthlyChartData"
                 [labels]="MonthlyLabels"
