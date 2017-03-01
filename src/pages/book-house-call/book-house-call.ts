@@ -28,7 +28,7 @@ export class BookHouseCallPage {
  public m_select: string = "1";
  public repeatselected: boolean = false;
  public showitem: boolean = false;
-
+ public showitems: boolean = false;
   constructor(public navCtrl: NavController, public af: AngularFire, public navParams: NavParams, storage: Storage, public toastCtrl: ToastController, public http: Http) {
     this.housecallappointment = { line1: '', line2: '', city: '', state: '', zip: '' };
     this.storage = storage;
@@ -46,10 +46,22 @@ export class BookHouseCallPage {
         {
             case "d":
                                 this.showitem = false;
+                                this.showitems = false;
                 break;
             case "w":
-                                this.showitem = true;
+                                this.showitem = false;
+                                this.showitems = true;
                 break;
+
+                case "m":
+              this.showitem = true;
+              this.showitems = true;
+              break;
+
+              case "y":
+              this.showitem = false;
+              this.showitems = false;
+              break;
         }
 }
 
