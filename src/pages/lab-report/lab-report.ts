@@ -43,4 +43,13 @@ SocialSharing.canShareViaEmail().then(() => {
 
 }
 
+zoomIn(event)
+{
+
+}
+zoomOut(event)
+{
+
+}
+
 }
