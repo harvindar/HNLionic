@@ -19,7 +19,10 @@ export class GoogleMaps {
   apiKey: string = '';
 
   constructor(public connectivityService: Connectivity) {
-    distanceAPI.apiKey = 'AIzaSyDejNq_hdXSUjpRH7nIbckYokwGGEn3GZA';
+
+    //distanceAPI.apiKey = 'AIzaSyDejNq_hdXSUjpRH7nIbckYokwGGEn3GZA';
+    //Tushar API key
+    distanceAPI.apiKey = 'AIzaSyDfN57TjGLqAjDIA1YWIZhYTyUJqtQ6gus';
   }
 
   init(mapElement: any, pleaseConnect: any, location?:any): Promise<any> {

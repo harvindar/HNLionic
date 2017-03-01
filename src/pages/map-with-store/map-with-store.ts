@@ -50,17 +50,18 @@ export class MapWithStorePage {
         Geolocation.getCurrentPosition({ maximumAge: 0, enableHighAccuracy: true })
           .then((location) => {
             //location.coords.latitude
-            this.currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-            this.map.setCenter(this.currentLocation);
+            this.currentLocation = location.coords.latitude + ',' + location.coords.longitude;
+            //
             //location.coords.latitude + ',' + location.coords.longitude
             //Hardcoded to 30
-            this.calclateDistance('40.784212, -75.715123', 30);
+            this.calclateDistance(this.currentLocation, 30);
           })
-          .catch(err => {
-            this.currentLocation = null;
+          .catch(res => {
+            this.currentLocation = '40.6092, -75.475';
+            this.bounds = new google.maps.LatLngBounds();
+            this.addMarkerswithCluster(map, this.locations);
+            this.map.setCenter(this.currentLocation);
           });
-        this.bounds = new google.maps.LatLngBounds();
-        this.addMarkerswithCluster(map, this.locations);
       });
 
     });
@@ -83,7 +84,7 @@ export class MapWithStorePage {
     });
     popover.onDidDismiss((rangeinkm) => {
       if (rangeinkm != -1 && rangeinkm != null) {
-        this.calclateDistance('40.784212, -75.715123', rangeinkm);
+        this.calclateDistance(this.currentLocation, rangeinkm);
       }
       else if (rangeinkm == -1) {
 
@@ -95,8 +96,10 @@ export class MapWithStorePage {
     })
   }
   calclateDistance(location, rangeinkm) {
+    console.log('running distance api');
     this.maps.getNearbyLocations(location, this.onlyLatLngLocations)
       .then(res => {
+        this.map.setCenter(this.currentLocation);
         console.log('distanceapi', res);
         var nearbylocations: any[] = [];
         var original_json = this.storeProvider.stores_list;
@@ -107,14 +110,20 @@ export class MapWithStorePage {
             nearbylocations.push(original_json[i]);
           }
         }
+/*        nearbylocations.forEach((item, index, arr) => {
+          nearbylocations[index]['totalwaittime'] = Math.round(item.durationValue % 3600 / 60) + item.WaitTimeDescription;
+        })*/
         this.locations = nearbylocations;
-        console.log(nearbylocations);
+        console.log(this.locations);
         this.clearMarkers();
         this.bounds = new google.maps.LatLngBounds();
         this.addMarkerswithCluster(this.map, nearbylocations);
       })
       .catch(err => {
-        this.map.setCenter(new google.maps.LatLng(40.784212, -75.715123));
+        this.currentLocation = '40.6092, -75.475';
+        this.bounds = new google.maps.LatLngBounds();
+        this.addMarkerswithCluster(this.map, this.locations);
+        this.map.setCenter(new google.maps.LatLng(this.currentLocation.split(',')[0], this.currentLocation.split(',')[1]));
       })
   }
   toPSCDetail(store: any) {
@@ -141,7 +150,7 @@ export class MapWithStorePage {
         this.bounds.extend(new google.maps.LatLng(item.Latitude, item.Longitude));
         let marker = new google.maps.Marker({
           position: { lat: item.Latitude, lng: item.Longitude },
-          label: 'Waiting time: ' + item.WaitTimeDescription.match(/\d+/g),
+          label: item.WaitTimeDescription,
           map: map
         });
         marker.set('id', item.ClientID);
