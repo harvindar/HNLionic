@@ -18,40 +18,32 @@
  </ion-title>
  <ion-buttons end>
 
-    <button ion-button icon-only (click)="zoomIn($event)">
-    <ion-icon name="ion-plus" ></ion-icon>
-    </button>
+   <button ion-button clear end color="default" icon-right (click)="zoomIn($event)">
+          <ion-icon name='add'></ion-icon>  
+  </button>
 
-    <button ion-button icon-only (click)="zoomOut($event)">
-    <ion-icon name="ion-minus" ></ion-icon>
-    </button>
-
+     <button ion-button clear end color="default" icon-right (click)="zoomOut($event)">
+          <ion-icon name='remove'></ion-icon>  
+  </button>
 
    <button ion-button clear end color="default" icon-right (click)="shareonemail($event)">
-          <ion-icon name='share'></ion-icon>
+          <ion-icon name='share'></ion-icon>  
+  </button>
 
-
-
-           
-</button>
  </ion-buttons>
     
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding> 
 
   <pdf-viewer [src]="pdfSrc" 
               [original-size]="false"
               [show-all]="true"
               style="display: block;"
+              [zoom]=currentZoomValue
   ></pdf-viewer>
 
 
 </ion-content>
-
-
-
-
-

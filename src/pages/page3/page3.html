@@ -28,8 +28,7 @@
         <button ion-item *ngFor="let report of reports" (click)="itemSelected(report)">
     Provider: {{report.provider }}
     <p>Accession: {{report.accession}}</p>
-    <p>Date: {{report.datetime}}</p>
- <ion-thumbnail item-right>
+ <ion-thumbnail item-left>
                             <ion-img [src]="report.imagePath"></ion-img>
                         </ion-thumbnail>
   </button>

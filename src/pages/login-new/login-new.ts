@@ -27,6 +27,8 @@ export class LoginNewPage {
             .subscribe(
             (evnt:InAppBrowserEvent) => {
 
+              console.log(evnt.url);
+              
               let fedAuthIndex = evnt.url.indexOf('Success');
               if(fedAuthIndex > -1)
               {

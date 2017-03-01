@@ -60,7 +60,7 @@ export class MyApp {
     ];
 
     events.subscribe('user:logout', (userEventData) => {
-      this.nav.setRoot(Page1);
+      this.nav.setRoot(LoginNewPage);
     });
 
     events.subscribe('user:loginerror', (userEventData) => {

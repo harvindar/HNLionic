@@ -21,35 +21,35 @@ export class DemoPage {
 this.data.push({
       title: "Welcome to Health Network Laboratories!",
       description: "The <b>Health Network Laboratories (HNL)</b> offers advanced laboratory diagnostic testing at convenient testing locations",
-      image: "assets/img/ica-slidebox-img-1.png",
+      image: "assets/img/welcome.png",
     });
 
     this.data.push( {
       title: "Track Your Fitness",
       description: "Health is wealth, keep track of your fitness stats with us",
-      image: "assets/img/ica-slidebox-img-2.png",
+      image: "assets/img/trackFitness.png",
     });
     this.data.push({
       title: "View Your Test Results",
       description: "Get your test results as soon as they are available",
-      image: "assets/img/ica-slidebox-img-2.png",
+      image: "assets/img/testResults.png",
     });
     this.data.push({
       title: "Schedule House Call",
       description: "Get blood work done in comfort of your own home",
-      image: "assets/img/ica-slidebox-img-3.png",
+      image: "assets/img/scheduleHouseCall.png", 
     });
     this.data.push({
       title: "Find Centre Near You",
       description: "Allows you to find Patient Service Centre near you and check in remotely to avoid waiting time",
-      image: "assets/img/ica-slidebox-img-3.png",
+      image: "assets/img/nearServiceCentre.png",
     });
 
 
   }
 
 navigatetohome(event) {
-this.navCtrl.setRoot(Page1);
+this.navCtrl.setRoot(LoginNewPage);
 
 }
 

@@ -18,15 +18,20 @@ export class LabReportPage {
 
   pdfSrc: string = 'assets/HNLResult.pdf';
   page: number = 1;
+  zoomArray = ["1.0","0.8","0.4","0.2"];
+  zoomCounter = 0;
+  currentZoomValue = "0.0";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.currentZoomValue = this.zoomArray[this.zoomCounter];
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LabReportPage');
   }
 
 
-  shareonemail (event) {
+  shareonemail () {
 SocialSharing.canShareViaEmail().then(() => {
   // Sharing via email is possible
   let files = ['assets/HNLResult.pdf'] ;
@@ -45,10 +50,23 @@ SocialSharing.canShareViaEmail().then(() => {
 
 zoomIn(event)
 {
+    if(this.zoomCounter >= 3)
+  {
+    return;
+  }
+  this.zoomCounter++;
+  this.currentZoomValue = this.zoomArray[this.zoomCounter];
+
 
 }
-zoomOut(event)
+zoomOut(event) 
 {
+    if(this.zoomCounter <= 0)
+  {
+    return;
+  }
+  this.zoomCounter--;
+  this.currentZoomValue = this.zoomArray[this.zoomCounter];
 
 }
 
