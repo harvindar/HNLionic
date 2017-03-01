@@ -28,20 +28,23 @@ export class LoginNewPage {
             (evnt:InAppBrowserEvent) => {
 
               console.log(evnt.url);
-              
-              let fedAuthIndex = evnt.url.indexOf('Success');
+              let fedAuthIndex = evnt.url.indexOf('MYH_DummyLogin_Success_VFP');
               if(fedAuthIndex > -1)
               {
+                browser.close();
                 this.events.publish('user:login', "User logged in");
                 console.log("Harry Success while login");
-                browser.close();
               }
+              else
+              {
               fedAuthIndex = evnt.url.indexOf('failure');
               if(fedAuthIndex > -1)
               {
                 this.events.publish('user:loginerror', "User logged in");
                 console.log("Harry error while login");
                 browser.close();
+              }
+
               }
             },
             err => {

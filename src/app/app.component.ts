@@ -70,8 +70,34 @@ export class MyApp {
     events.subscribe('user:login', (userEventData) => {
       this.nav.setRoot(DashboardPage);
     });
+
+    this.events.subscribe('app:pushnotify', (pushData) => {
+      this.handlePushData(pushData);
+    });
+
   }
 
+handlePushData(pushData) {
+    console.log(pushData);
+    if (pushData.wasTapped) {
+    }
+    else {
+      let alert = this.alertCtrl.create({
+        title: pushData.title,
+        subTitle: pushData.body,
+        buttons: [
+          {
+            text: 'Ok',
+            handler: data => {
+              console.log('Ok clicked');
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+  }
+  
   initializeApp() {
     this.platform.ready().then(() => {
 
