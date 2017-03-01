@@ -110,9 +110,12 @@ export class MapWithStorePage {
             nearbylocations.push(original_json[i]);
           }
         }
-/*        nearbylocations.forEach((item, index, arr) => {
+        nearbylocations.forEach((item, index, arr) => {
           nearbylocations[index]['totalwaittime'] = Math.round(item.durationValue % 3600 / 60) + item.WaitTimeDescription;
-        })*/
+        })
+        nearbylocations.sort(function (a, b) {
+          return a.WaitTimeDescription - b.WaitTimeDescription;
+        });
         this.locations = nearbylocations;
         console.log(this.locations);
         this.clearMarkers();
